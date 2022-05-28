@@ -1,25 +1,10 @@
-
-source ./settings.vim
 source ./plugins.vim
+source ./settings.vim
 
-" Disable tmux navigator when zooming the Vim pane
-let g:tmux_navigator_disable_when_zoomed = 1
-let g:tmux_navigator_no_mappings = 1
-
-" let g:indentLine_enabled = 0
-let g:indentLine_fileType = ['lua', 'python']
-
-nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
+runtime! ./plug-configs/**/*.vim
 
 let g:vim_svelte_plugin_has_init_indent = 1
-
-" ============================================
-" == BINDINGS
-" ============================================
-
+let g:indentLine_fileType = ['lua', 'python']
 
 " Resizing
 noremap <C-W>- 5<C-W>-
@@ -139,7 +124,6 @@ let g:calendar_no_mappings=1
 
 " Fugitive
 nnoremap <Leader>gg :Git<CR>
-nnoremap <leader>gu :GitGutterToggle<CR>
 nnoremap <leader>gc :Git checkout<space>
 nnoremap <Leader>gb :Git branch<Space>
 nnoremap <Leader>gp :Git push<CR>
@@ -155,6 +139,7 @@ nmap ghs <Plug>(GitGutterStageHunk)
 nmap ghu <Plug>(GitGutterUndoHunk)
 nmap [c <Plug>(GitGutterPrevHunk)
 nmap ]c <Plug>(GitGutterNextHunk)
+nnoremap <leader>gu :GitGutterToggle<CR>
 
 " Fzf
 nnoremap <C-p> :GFiles<CR>

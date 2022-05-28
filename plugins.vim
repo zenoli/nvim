@@ -2,7 +2,7 @@
 " == PLUGINS
 " ============================================
 " Plugins will be downloaded under the specified directory.
-call plug#begin('./plugins')
+call plug#begin('./plugged')
 
 Plug 'benmills/vimux'
 Plug 'yggdroot/indentline'
@@ -38,3 +38,4 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'leafOfTree/vim-svelte-plugin'
 
 call plug#end()
+
