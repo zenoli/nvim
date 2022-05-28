@@ -1,6 +1,10 @@
 " ============================================
 " == GENERAL SETTINGS
 " ============================================
+" General mappings
+let mapleader = " "
+let maplocalleader = '\'
+
 set nocompatible
 set cursorline
 filetype plugin on
