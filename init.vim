@@ -1,94 +1,6 @@
-" ============================================
-" == GENERAL SETTINGS
-" ============================================
-set nocompatible
-set cursorline
-filetype plugin on
-syntax on
 
-set number relativenumber
-set timeoutlen=1000 ttimeoutlen=10
-set hidden
-set mouse=a
-set wildmenu     " Display available commands when pressing TAB in command mode.
-
-set showcmd
-set splitbelow
-set splitright
-set noswapfile
-
-set showtabline=2
-set guioptions-=e
-set laststatus=2
-
-set t_Co=256     " Use 256 colours (Use this setting only if your terminal supports 256 colours)
-
-" Indentation
-set autoindent   " use indentation of previous line
-set smartindent  " use intelligent indentation
-set smarttab
-
-" tab settings using hard tabs
-set tabstop=4    " tab width is 4 spaces
-set shiftwidth=4 " indent also with 4 spaces
-set expandtab
-
-" Searching
-set ignorecase
-set smartcase
-set hlsearch
-set incsearch
-
-" Scrolling
-set scrolloff=5
-
-" Resizing
-noremap <C-W>- 5<C-W>-
-noremap <C-W>+ 5<C-W>+
-noremap <C-W>< 15<C-W><
-noremap <C-W>> 15<C-W>>
-
-
-" ============================================
-" == PLUGINS
-" ============================================
-" Plugins will be downloaded under the specified directory.
-call plug#begin('~/.vim/plugged')
-
-Plug 'benmills/vimux'
-Plug 'yggdroot/indentline'
-Plug 'kana/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-commentary'
-Plug 'easymotion/vim-easymotion'
-Plug 'vimwiki/vimwiki'
-Plug 'mattn/calendar-vim'
-Plug 'navarasu/onedark.nvim'
-Plug 'morhetz/gruvbox'
-Plug 'ghifarit53/tokyonight-vim'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'szw/vim-maximizer'
-Plug 'godlygeek/tabular'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'tpope/vim-fugitive' 
-Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/gv.vim'
-Plug 'tpope/vim-rhubarb'
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-Plug 'ryanoasis/vim-devicons'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'edkolev/tmuxline.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'kevinoid/vim-jsonc'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-Plug 'puremourning/vimspector'
-Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'leafOfTree/vim-svelte-plugin'
-
-call plug#end()
+source ./settings.vim
+source ./plugins.vim
 
 " Disable tmux navigator when zooming the Vim pane
 let g:tmux_navigator_disable_when_zoomed = 1
@@ -107,6 +19,13 @@ let g:vim_svelte_plugin_has_init_indent = 1
 " ============================================
 " == BINDINGS
 " ============================================
+
+
+" Resizing
+noremap <C-W>- 5<C-W>-
+noremap <C-W>+ 5<C-W>+
+noremap <C-W>< 15<C-W><
+noremap <C-W>> 15<C-W>>
 
 " General mappings
 let mapleader = " "
@@ -488,16 +407,6 @@ else
   " Default color scheme
   colorscheme onedark
 endif
-
-" Set background to same color as the terminal
-" highlight Normal guibg=NONE
-" highlight NormalNC guibg=NONE
-" highlight TabLine guibg=NONE
-" highlight TabLineFill guibg=NONE
-" highlight SignColumn guibg=NONE
-" highlight StatusLineNC guibg=NONE
-" highlight LineNr guibg=NONE
-" highlight EndOfBuffer guibg=NONE
 
 " ============================================
 " == FZF
