@@ -1,14 +1,16 @@
 " ============================================
 " == GENERAL SETTINGS
 " ============================================
-" General mappings
+
+" = LEADER =
 let mapleader = " "
 let maplocalleader = '\'
 
+" = GLOBAL SETTINGS =
+syntax on
 set nocompatible
 set cursorline
 filetype plugin on
-syntax on
 
 set number relativenumber
 set timeoutlen=1000 ttimeoutlen=10
@@ -25,6 +27,7 @@ set showtabline=2
 set guioptions-=e
 set laststatus=2
 
+set termguicolors
 set t_Co=256     " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 
 " Indentation
@@ -45,3 +48,12 @@ set incsearch
 
 " Scrolling
 set scrolloff=5
+
+" = AUTOCOMMANDS =
+augroup custom_autocommands
+    autocmd!
+    " Update split sizes when window is resized
+    autocmd VimResized * execute "normal! \<C-w>="
+    " Set tmux filetype on .tmux files
+    autocmd BufNewFile,BufRead *.tmux set ft=tmux
+augroup END

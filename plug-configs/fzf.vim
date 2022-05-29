@@ -34,12 +34,9 @@ nnoremap <Leader>l :BLines<CR>
 nnoremap <Leader>L :Lines<CR>
 nnoremap <Leader>h :Helptags<CR>
 nnoremap <Leader>H :History:<CR>
-nnoremap <Leader>o :CocList outline<CR>
 nnoremap <Leader>a :Ag<CR>
 "
 " Insert mode completion
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-l> <plug>(fzf-complete-line)
-
-echom "FZF config loaded!!!"

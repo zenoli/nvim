@@ -1,8 +1,9 @@
 " ============================================
 " == PLUGINS
 " ============================================
+
 " Plugins will be downloaded under the specified directory.
-call plug#begin('./plugged')
+call plug#begin(nvim_home . '/plugged')
 
 " Themes
 Plug 'navarasu/onedark.nvim'
@@ -11,6 +12,7 @@ Plug 'ghifarit53/tokyonight-vim'
 Plug 'NLKNguyen/papercolor-theme'
 
 " Visual aids
+Plug 'yggdroot/indentline'
 Plug 'ryanoasis/vim-devicons'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'nvim-lualine/lualine.nvim'
@@ -30,7 +32,6 @@ Plug 'benmills/vimux'
 Plug 'vimwiki/vimwiki'
 Plug 'mattn/calendar-vim'
 
-Plug 'yggdroot/indentline'
 " Quality of life
 Plug 'kana/vim-surround'
 Plug 'tpope/vim-repeat'
