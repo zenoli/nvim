@@ -58,14 +58,13 @@ cnoremap <M-f> <S-Right>
 " Make Y behave like other capital commands.
 nnoremap Y y$
 
-" Just to beginning and end of lines easier.
+" Jump to beginning and end of lines easier.
 noremap H ^
 noremap L $
 
 " Create newlines without entering insert mode
 nnoremap go o<Esc>
 nnoremap gO O<Esc>
-
 
 " Edit config files
 " VIM
@@ -80,7 +79,6 @@ nnoremap <leader>tE :vsplit $HOME/.tmux.conf<cr>
 " ZSH
 nnoremap <leader>ze :e $HOME/.zshrc<cr>
 nnoremap <leader>zE :vsplit $HOME/.zshrc<cr>
-
 
 " Undo break points
 inoremap , ,<c-g>u
