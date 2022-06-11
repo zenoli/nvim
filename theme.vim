@@ -3,7 +3,7 @@
 " ============================================
 
 " = SETTINGS =
-let color_path = expand('~/.config/nvim/themes/$MY_THEME.vim')
+let color_path = g:nvim_home . expand('/themes/$MY_THEME.vim')
 if filereadable(color_path)
   exec 'source' color_path
 else
