@@ -25,8 +25,6 @@ let g:fzf_colors = {
   \ 'header':  ['fg', 'Comment'] }
 
 " = BINDINGS =
-
-echom "Loading fzf keybindings"
 nnoremap <C-p> :GFiles<CR>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>c :Commands<CR>
