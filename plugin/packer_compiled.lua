@@ -69,23 +69,97 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["calendar-vim"] = {
+    config = { "\27LJ\2\nS\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0004source ~/.config/nvim/plug-configs/calendar.vim\bcmd\bvim\0" },
+    loaded = true,
+    path = "/home/olivier/.local/share/nvim/site/pack/packer/start/calendar-vim",
+    url = "https://github.com/mattn/calendar-vim"
+  },
+  ["coc.nvim"] = {
+    config = { "\27LJ\2\nN\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0/source ~/.config/nvim/plug-configs/coc.vim\bcmd\bvim\0" },
+    loaded = true,
+    path = "/home/olivier/.local/share/nvim/site/pack/packer/start/coc.nvim",
+    url = "https://github.com/neoclide/coc.nvim"
+  },
+  fzf = {
+    loaded = true,
+    path = "/home/olivier/.local/share/nvim/site/pack/packer/start/fzf",
+    url = "https://github.com/junegunn/fzf"
+  },
+  ["fzf.vim"] = {
+    config = { "\27LJ\2\nN\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0/source ~/.config/nvim/plug-configs/fzf.vim\bcmd\bvim\0" },
+    loaded = true,
+    path = "/home/olivier/.local/share/nvim/site/pack/packer/start/fzf.vim",
+    url = "https://github.com/junegunn/fzf.vim"
+  },
+  gruvbox = {
+    loaded = true,
+    path = "/home/olivier/.local/share/nvim/site/pack/packer/start/gruvbox",
+    url = "https://github.com/morhetz/gruvbox"
+  },
+  indentline = {
+    config = { "\27LJ\2\nU\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0006source ~/.config/nvim/plug-configs/indentline.vim\bcmd\bvim\0" },
+    loaded = true,
+    path = "/home/olivier/.local/share/nvim/site/pack/packer/start/indentline",
+    url = "https://github.com/yggdroot/indentline"
+  },
+  ["lualine.nvim"] = {
+    config = { "\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\flualine\frequire\0" },
+    loaded = true,
+    path = "/home/olivier/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["onedark.nvim"] = {
+    loaded = true,
+    path = "/home/olivier/.local/share/nvim/site/pack/packer/start/onedark.nvim",
+    url = "https://github.com/navarasu/onedark.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/olivier/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["papercolor-theme"] = {
+    loaded = true,
+    path = "/home/olivier/.local/share/nvim/site/pack/packer/start/papercolor-theme",
+    url = "https://github.com/NLKNguyen/papercolor-theme"
   },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/olivier/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["tokyonight-vim"] = {
+    loaded = true,
+    path = "/home/olivier/.local/share/nvim/site/pack/packer/start/tokyonight-vim",
+    url = "https://github.com/ghifarit53/tokyonight-vim"
+  },
+  ["vim-easymotion"] = {
+    config = { "\27LJ\2\nU\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0006source ~/.config/nvim/plug-configs/easymotion.vim\bcmd\bvim\0" },
+    loaded = true,
+    path = "/home/olivier/.local/share/nvim/site/pack/packer/start/vim-easymotion",
+    url = "https://github.com/easymotion/vim-easymotion"
+  },
+  ["vim-fugitive"] = {
+    config = { "\27LJ\2\nS\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0004source ~/.config/nvim/plug-configs/fugitive.vim\bcmd\bvim\0" },
+    loaded = true,
+    path = "/home/olivier/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-gitgutter"] = {
+    config = { "\27LJ\2\nT\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0005source ~/.config/nvim/plug-configs/gitgutter.vim\bcmd\bvim\0" },
+    loaded = true,
+    path = "/home/olivier/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
+    url = "https://github.com/airblade/vim-gitgutter"
+  },
   ["vim-tmux-navigator"] = {
-    config = { "\27LJ\2\nY\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0016\0\2\0'\2\3\0B\0\2\1K\0\1\0$plug-configs/vim-tmux-navigator\frequire\fHellolo\nprint\0" },
+    config = { "\27LJ\2\n]\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0>source ~/.config/nvim/plug-configs/vim-tmux-navigator.vim\bcmd\bvim\0" },
     loaded = true,
     path = "/home/olivier/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
     url = "https://github.com/christoomey/vim-tmux-navigator"
   },
   vimux = {
+    config = { "\27LJ\2\nP\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0001source ~/.config/nvim/plug-configs/vimux.vim\bcmd\bvim\0" },
     loaded = true,
     path = "/home/olivier/.local/share/nvim/site/pack/packer/start/vimux",
     url = "https://github.com/benmills/vimux"
@@ -93,10 +167,46 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\flualine\frequire\0", "config", "lualine.nvim")
+time([[Config for lualine.nvim]], false)
+-- Config for: vim-fugitive
+time([[Config for vim-fugitive]], true)
+try_loadstring("\27LJ\2\nS\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0004source ~/.config/nvim/plug-configs/fugitive.vim\bcmd\bvim\0", "config", "vim-fugitive")
+time([[Config for vim-fugitive]], false)
+-- Config for: fzf.vim
+time([[Config for fzf.vim]], true)
+try_loadstring("\27LJ\2\nN\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0/source ~/.config/nvim/plug-configs/fzf.vim\bcmd\bvim\0", "config", "fzf.vim")
+time([[Config for fzf.vim]], false)
+-- Config for: vim-gitgutter
+time([[Config for vim-gitgutter]], true)
+try_loadstring("\27LJ\2\nT\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0005source ~/.config/nvim/plug-configs/gitgutter.vim\bcmd\bvim\0", "config", "vim-gitgutter")
+time([[Config for vim-gitgutter]], false)
+-- Config for: vimux
+time([[Config for vimux]], true)
+try_loadstring("\27LJ\2\nP\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0001source ~/.config/nvim/plug-configs/vimux.vim\bcmd\bvim\0", "config", "vimux")
+time([[Config for vimux]], false)
+-- Config for: calendar-vim
+time([[Config for calendar-vim]], true)
+try_loadstring("\27LJ\2\nS\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0004source ~/.config/nvim/plug-configs/calendar.vim\bcmd\bvim\0", "config", "calendar-vim")
+time([[Config for calendar-vim]], false)
+-- Config for: vim-easymotion
+time([[Config for vim-easymotion]], true)
+try_loadstring("\27LJ\2\nU\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0006source ~/.config/nvim/plug-configs/easymotion.vim\bcmd\bvim\0", "config", "vim-easymotion")
+time([[Config for vim-easymotion]], false)
 -- Config for: vim-tmux-navigator
 time([[Config for vim-tmux-navigator]], true)
-try_loadstring("\27LJ\2\nY\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0016\0\2\0'\2\3\0B\0\2\1K\0\1\0$plug-configs/vim-tmux-navigator\frequire\fHellolo\nprint\0", "config", "vim-tmux-navigator")
+try_loadstring("\27LJ\2\n]\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0>source ~/.config/nvim/plug-configs/vim-tmux-navigator.vim\bcmd\bvim\0", "config", "vim-tmux-navigator")
 time([[Config for vim-tmux-navigator]], false)
+-- Config for: indentline
+time([[Config for indentline]], true)
+try_loadstring("\27LJ\2\nU\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0006source ~/.config/nvim/plug-configs/indentline.vim\bcmd\bvim\0", "config", "indentline")
+time([[Config for indentline]], false)
+-- Config for: coc.nvim
+time([[Config for coc.nvim]], true)
+try_loadstring("\27LJ\2\nN\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0/source ~/.config/nvim/plug-configs/coc.vim\bcmd\bvim\0", "config", "coc.nvim")
+time([[Config for coc.nvim]], false)
 if should_profile then save_profiles() end
 
 end)
