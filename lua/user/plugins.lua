@@ -49,6 +49,13 @@ return packer.startup(function(use)
     use "morhetz/gruvbox"
     use "ghifarit53/tokyonight-vim"
     use "NLKNguyen/papercolor-theme"
+    use "vimwiki/vimwiki"
+    use "junegunn/gv.vim"
+
+    use "kana/vim-surround"
+    use "tpope/vim-repeat"
+    use "tpope/vim-commentary"
+    use "szw/vim-maximizer"
 
     use (require("plug-configs.calendar"))
     use (require("plug-configs.coc"))
@@ -58,6 +65,9 @@ return packer.startup(function(use)
     use (require("plug-configs.gitgutter"))
     use (require("plug-configs.indentline"))
     use (require("plug-configs.lualine"))
+    use (require("plug-configs.rnvimr"))
+    use (require("plug-configs.tabularize"))
+    use (require("plug-configs.treesitter"))
     use (require("plug-configs.vim-tmux-navigator"))
     use (require("plug-configs.vimux"))
 
