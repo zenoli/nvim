@@ -1,43 +1,4 @@
-local fn = vim.fn
-
--- Automatically install packer
-local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system {
-    "git",
-    "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  }
-  print "Installing packer close and reopen Neovim..."
-  vim.cmd [[packadd packer.nvim]]
-end
-
--- Autocommand that reloads neovim whenever you save the plugins.lua file
--- vim.cmd [[
--- augroup packer_user_config
---   autocmd!
---   autocmd BufWritePost plugins.lua source <afile> | PackerSync
--- augroup end
--- ]]
-
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
-end
-
--- Have packer use a popup window
-packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
-    end,
-  },
-}
-
+local packer = require "user.packer-config"
 
 -- Install your plugins here
 return packer.startup(function(use)
@@ -56,25 +17,27 @@ return packer.startup(function(use)
     use "tpope/vim-repeat"
     use "tpope/vim-commentary"
     use "szw/vim-maximizer"
+    -- use { "rcarriga/nvim-notify", config =  }
 
-    use (require("plug-configs.calendar"))
-    use (require("plug-configs.coc"))
-    use (require("plug-configs.easymotion"))
-    use (require("plug-configs.fugitive"))
-    use (require("plug-configs.fzf"))
-    use (require("plug-configs.gitgutter"))
-    use (require("plug-configs.indentline"))
-    use (require("plug-configs.lualine"))
-    use (require("plug-configs.rnvimr"))
-    use (require("plug-configs.tabularize"))
-    use (require("plug-configs.treesitter"))
-    use (require("plug-configs.vim-tmux-navigator"))
-    use (require("plug-configs.vimux"))
+    use (require "plug-configs.nvim-notify")
+    use (require "plug-configs.calendar")
+    use (require "plug-configs.coc")
+    use (require "plug-configs.easymotion")
+    use (require "plug-configs.fugitive")
+    use (require "plug-configs.fzf")
+    use (require "plug-configs.gitgutter")
+    use (require "plug-configs.indentline")
+    use (require "plug-configs.lualine")
+    use (require "plug-configs.rnvimr")
+    use (require "plug-configs.tabularize")
+    use (require "plug-configs.treesitter")
+    use (require "plug-configs.vim-tmux-navigator")
+    use (require "plug-configs.vimux")
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
-        require("packer").sync()
+        require "packer".sync()
     end
 end)
 
