@@ -1,4 +1,4 @@
-require "user.settings"
+require "user.options"
 require "user.keybindings"
 require "user.autocommands"
 require "user.plugins"

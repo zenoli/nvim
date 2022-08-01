@@ -23,24 +23,24 @@ nnoremap <silent> <ESC><ESC> :nohlsearch<CR><ESC>
 nnoremap ' `
 nnoremap ` '
 
-" Buffer navigation
-nnoremap ]b :bn<CR>
-nnoremap [b :bp<CR>
-nnoremap <Leader>D :bp<bar>bd #<CR>
+" " Buffer navigation
+" nnoremap ]b :bn<CR>
+" nnoremap [b :bp<CR>
+" nnoremap <Leader>D :bp<bar>bd #<CR>
 
 " Tab navigation
-nnoremap ]t :tabnext<CR>
-nnoremap [t :tabprevious<CR>
+" nnoremap ]t :tabnext<CR>
+" nnoremap [t :tabprevious<CR>
 
 " Scrolling
-nnoremap <C-j> 5<C-E>
-nnoremap <C-k> 5<C-Y>
+" nnoremap <C-j> 5<C-E>
+" nnoremap <C-k> 5<C-Y>
 
-" Convenient pasting
-nnoremap <Leader>pp "0p
-nnoremap <Leader>PP "0P
-nnoremap <Leader>pc $"+p
-nnoremap <Leader>PC $"+P
+" " Convenient pasting
+" nnoremap <Leader>pp "0p
+" nnoremap <Leader>PP "0P
+" nnoremap <Leader>pc $"+p
+" nnoremap <Leader>PC $"+P
 
 " Don't move on *
 nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
@@ -56,7 +56,7 @@ cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
 
 " Make Y behave like other capital commands.
-nnoremap Y y$
+" nnoremap Y y$
 
 " Jump to beginning and end of lines easier.
 noremap H ^

@@ -8,6 +8,7 @@ function M.reload()
     dofile(vim.env.MYVIMRC)
     packer.compile()
     vim.notify("Reloading Neovim config...", vim.log.levels.INFO, { render = "minimal" })
+    vim.cmd("nohlsearch")
 end
 
 return M
