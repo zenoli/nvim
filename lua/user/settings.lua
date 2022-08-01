@@ -1,1 +1,44 @@
-vim.cmd('source ~/.config/nvim/settings.vim')
+vim.g.mapleader = [[ ]] -- Use space as leader
+vim.g.maplocalleader = [[\]] -- Use backslash as localleader
+
+local options = {
+    cursorline = true,
+
+    number = true,
+    relativenumber = true,
+    timeoutlen = 1000,
+    ttimeoutlen = 10,
+    hidden = true,
+    mouse = "a",
+
+    splitbelow = true,
+    splitright = true,
+
+    showtabline = 2,
+    laststatus = 2,
+
+    termguicolors = true,
+
+    -- Indentation
+    autoindent = true,
+    smartindent = true,
+    smarttab = true,
+
+    -- tab settings using hard tabs
+    tabstop = 4,
+    shiftwidth = 4,
+    expandtab = true,
+
+    -- Searching
+    ignorecase = true,
+    smartcase = true,
+    hlsearch = true,
+    incsearch = true,
+
+    -- Scrolling
+    scrolloff = 5
+}
+
+for k, v in pairs(options) do
+  vim.opt[k] = v
+end

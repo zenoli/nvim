@@ -1,6 +1,7 @@
 " ============================================
 " == GENERAL SETTINGS
 " ============================================
+echom "Hello from settings.vim"
 
 " = LEADER =
 let mapleader = " "

@@ -115,7 +115,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["nvim-notify"] = {
-    config = { "\27LJ\2\nm\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\3\0B\1\2\0016\1\4\0=\0\1\1K\0\1\0\bvim\1\0\3\vstages\tfade\ftimeout\3è\a\vrender\fdefault\nsetup\vnotify\frequire\0" },
+    config = { "\27LJ\2\nm\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\3\0B\1\2\0016\1\4\0=\0\1\1K\0\1\0\bvim\1\0\3\vstages\tfade\vrender\fdefault\ftimeout\3è\a\nsetup\vnotify\frequire\0" },
     loaded = true,
     path = "/home/olivier/.local/share/nvim/site/pack/packer/start/nvim-notify",
     url = "https://github.com/rcarriga/nvim-notify"
@@ -221,62 +221,62 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: indentline
-time([[Config for indentline]], true)
-try_loadstring("\27LJ\2\nU\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0006source ~/.config/nvim/plug-configs/indentline.vim\bcmd\bvim\0", "config", "indentline")
-time([[Config for indentline]], false)
--- Config for: coc.nvim
-time([[Config for coc.nvim]], true)
-try_loadstring("\27LJ\2\nN\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0/source ~/.config/nvim/plug-configs/coc.vim\bcmd\bvim\0", "config", "coc.nvim")
-time([[Config for coc.nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\flualine\frequire\0", "config", "lualine.nvim")
-time([[Config for lualine.nvim]], false)
--- Config for: calendar-vim
-time([[Config for calendar-vim]], true)
-try_loadstring("\27LJ\2\nS\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0004source ~/.config/nvim/plug-configs/calendar.vim\bcmd\bvim\0", "config", "calendar-vim")
-time([[Config for calendar-vim]], false)
--- Config for: vim-easymotion
-time([[Config for vim-easymotion]], true)
-try_loadstring("\27LJ\2\nU\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0006source ~/.config/nvim/plug-configs/easymotion.vim\bcmd\bvim\0", "config", "vim-easymotion")
-time([[Config for vim-easymotion]], false)
--- Config for: fzf.vim
-time([[Config for fzf.vim]], true)
-try_loadstring("\27LJ\2\nN\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0/source ~/.config/nvim/plug-configs/fzf.vim\bcmd\bvim\0", "config", "fzf.vim")
-time([[Config for fzf.vim]], false)
--- Config for: nvim-notify
-time([[Config for nvim-notify]], true)
-try_loadstring("\27LJ\2\nm\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\3\0B\1\2\0016\1\4\0=\0\1\1K\0\1\0\bvim\1\0\3\vstages\tfade\ftimeout\3è\a\vrender\fdefault\nsetup\vnotify\frequire\0", "config", "nvim-notify")
-time([[Config for nvim-notify]], false)
--- Config for: rnvimr
-time([[Config for rnvimr]], true)
-try_loadstring("\27LJ\2\nQ\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0002source ~/.config/nvim/plug-configs/rnvimr.vim\bcmd\bvim\0", "config", "rnvimr")
-time([[Config for rnvimr]], false)
--- Config for: vim-fugitive
-time([[Config for vim-fugitive]], true)
-try_loadstring("\27LJ\2\nS\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0004source ~/.config/nvim/plug-configs/fugitive.vim\bcmd\bvim\0", "config", "vim-fugitive")
-time([[Config for vim-fugitive]], false)
--- Config for: vim-tmux-navigator
-time([[Config for vim-tmux-navigator]], true)
-try_loadstring("\27LJ\2\n]\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0>source ~/.config/nvim/plug-configs/vim-tmux-navigator.vim\bcmd\bvim\0", "config", "vim-tmux-navigator")
-time([[Config for vim-tmux-navigator]], false)
 -- Config for: tabular
 time([[Config for tabular]], true)
 try_loadstring("\27LJ\2\nU\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0006source ~/.config/nvim/plug-configs/tabularize.vim\bcmd\bvim\0", "config", "tabular")
 time([[Config for tabular]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\nU\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0006source ~/.config/nvim/plug-configs/treesitter.vim\bcmd\bvim\0", "config", "nvim-treesitter")
-time([[Config for nvim-treesitter]], false)
+-- Config for: coc.nvim
+time([[Config for coc.nvim]], true)
+try_loadstring("\27LJ\2\nN\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0/source ~/.config/nvim/plug-configs/coc.vim\bcmd\bvim\0", "config", "coc.nvim")
+time([[Config for coc.nvim]], false)
 -- Config for: vim-gitgutter
 time([[Config for vim-gitgutter]], true)
 try_loadstring("\27LJ\2\nT\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0005source ~/.config/nvim/plug-configs/gitgutter.vim\bcmd\bvim\0", "config", "vim-gitgutter")
 time([[Config for vim-gitgutter]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\nU\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0006source ~/.config/nvim/plug-configs/treesitter.vim\bcmd\bvim\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
+-- Config for: vim-tmux-navigator
+time([[Config for vim-tmux-navigator]], true)
+try_loadstring("\27LJ\2\n]\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0>source ~/.config/nvim/plug-configs/vim-tmux-navigator.vim\bcmd\bvim\0", "config", "vim-tmux-navigator")
+time([[Config for vim-tmux-navigator]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\flualine\frequire\0", "config", "lualine.nvim")
+time([[Config for lualine.nvim]], false)
+-- Config for: nvim-notify
+time([[Config for nvim-notify]], true)
+try_loadstring("\27LJ\2\nm\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\3\0B\1\2\0016\1\4\0=\0\1\1K\0\1\0\bvim\1\0\3\vstages\tfade\vrender\fdefault\ftimeout\3è\a\nsetup\vnotify\frequire\0", "config", "nvim-notify")
+time([[Config for nvim-notify]], false)
+-- Config for: fzf.vim
+time([[Config for fzf.vim]], true)
+try_loadstring("\27LJ\2\nN\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0/source ~/.config/nvim/plug-configs/fzf.vim\bcmd\bvim\0", "config", "fzf.vim")
+time([[Config for fzf.vim]], false)
+-- Config for: indentline
+time([[Config for indentline]], true)
+try_loadstring("\27LJ\2\nU\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0006source ~/.config/nvim/plug-configs/indentline.vim\bcmd\bvim\0", "config", "indentline")
+time([[Config for indentline]], false)
 -- Config for: vimux
 time([[Config for vimux]], true)
 try_loadstring("\27LJ\2\nP\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0001source ~/.config/nvim/plug-configs/vimux.vim\bcmd\bvim\0", "config", "vimux")
 time([[Config for vimux]], false)
+-- Config for: vim-easymotion
+time([[Config for vim-easymotion]], true)
+try_loadstring("\27LJ\2\nU\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0006source ~/.config/nvim/plug-configs/easymotion.vim\bcmd\bvim\0", "config", "vim-easymotion")
+time([[Config for vim-easymotion]], false)
+-- Config for: rnvimr
+time([[Config for rnvimr]], true)
+try_loadstring("\27LJ\2\nQ\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0002source ~/.config/nvim/plug-configs/rnvimr.vim\bcmd\bvim\0", "config", "rnvimr")
+time([[Config for rnvimr]], false)
+-- Config for: calendar-vim
+time([[Config for calendar-vim]], true)
+try_loadstring("\27LJ\2\nS\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0004source ~/.config/nvim/plug-configs/calendar.vim\bcmd\bvim\0", "config", "calendar-vim")
+time([[Config for calendar-vim]], false)
+-- Config for: vim-fugitive
+time([[Config for vim-fugitive]], true)
+try_loadstring("\27LJ\2\nS\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0004source ~/.config/nvim/plug-configs/fugitive.vim\bcmd\bvim\0", "config", "vim-fugitive")
+time([[Config for vim-fugitive]], false)
 if should_profile then save_profiles() end
 
 end)
