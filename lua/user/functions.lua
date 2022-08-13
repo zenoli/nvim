@@ -11,4 +11,9 @@ function M.reload()
     vim.cmd("nohlsearch")
 end
 
+function M.map(mode, lhs, rhs)
+    local opts = { silent = true }
+    vim.keymap.set(mode, lhs, rhs, opts)
+end
+
 return M

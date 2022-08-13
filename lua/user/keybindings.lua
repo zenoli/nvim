@@ -1,8 +1,4 @@
-local map = function(mode, lhs, rhs)
-    local opts = { silent = true }
-    vim.keymap.set(mode, lhs, rhs, opts)
-end
-
+local map = require "user.functions".map
 
 map("", "<space>", "<nop>") -- disable space because leader
 map("n", "q:", "<nop>")
@@ -10,6 +6,7 @@ map("n", "q:", "<nop>")
 map("n", "<leader>q", ":q<cr>")
 map("n", "<leader>Q", ":qa<cr>")
 map("n", "<leader>s", ":% s/")
+map("n", "<esc><esc>", ":nohlsearch<cr><esc>")
 
 -- Swap ' and `
 map("n", "'", "`")
@@ -34,6 +31,8 @@ map("n", "<leader>PP", '"0P')
 map("n", "<leader>pc", '$"+p')
 map("n", "<leader>PC", '$"+P')
 
+map("v", "<leader>y", '"+y')
+
 -- Don't move on *
 map("n", "*", ":let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>")
 
@@ -55,7 +54,7 @@ map("i", "?", "?<c-g>u")
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
 map("i", "<c-k>", "<esc>:m .-2<cr>==a")
-map("i", "c-j>", "<esc>:m .+1<CR>==a")
+map("i", "<c-j>", "<esc>:m .+1<CR>==a")
 
 -- Move selected lines horizontally
 map("v", ">", ">gv")
