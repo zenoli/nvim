@@ -27,9 +27,7 @@ end
 -- Transforms a string s, given in `snake_case` and transforms it 
 -- to `kebap-case`.
 function M.to_kebap_case(s)
-    local res = string.gsub(s, "_", "-")
-    print(res)
-    return res
+    return string.gsub(s, "_", "-")
 end
 
 return M

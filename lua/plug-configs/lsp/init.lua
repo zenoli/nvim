@@ -1,17 +1,21 @@
 return {
     "neovim/nvim-lspconfig",
-    requires = { "williamboman/mason-lspconfig.nvim"},
+    requires = {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+    },
     config = function()
-        local utils = require "user.utils"
-        local map = utils.map
-        local lspconfig = require "lspconfig"
 
         local servers = {
             "sumneko_lua",
             "pyright"
         }
-
+        require "plug-configs.mason".config()
         require("mason-lspconfig").setup({ ensure_installed = servers })
+
+        local utils = require "user.utils"
+        local map = utils.map
+        local lspconfig = require "lspconfig"
 
         -- Mappings.
         -- See `:help vim.diagnostic.*` for documentation on any of the below functions
