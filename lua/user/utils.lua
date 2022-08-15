@@ -3,7 +3,7 @@ local packer = require "packer"
 
 local M = {}
 function M.reload()
-    plenary.reload_module "plug-configs"
+    plenary.reload_module "user.plugins"
     plenary.reload_module "user"
     dofile(vim.env.MYVIMRC)
     packer.install() -- If new plugins detected, install, do nothing otherwise.
