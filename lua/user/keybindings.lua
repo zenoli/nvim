@@ -1,11 +1,11 @@
-local user_fn = require "user.functions"
-local map = user_fn.map
+local utils = require "user.utils"
+local map = utils.map
 
 -- Leaders
 vim.g.mapleader = [[ ]] -- Use space as leader
 vim.g.maplocalleader = [[\]] -- Use backslash as localleader
 
-map("n", "<leader>vs", user_fn.reload)
+map("n", "<leader>vs", utils.reload)
 
 map("", "<space>", "<nop>") -- disable space because leader
 map("n", "q:", "<nop>")

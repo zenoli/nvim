@@ -1,4 +1,4 @@
-local user_fn = require "user.functions"
+local utils = require "user.utils"
 
 local custom_autocommands = vim.api.nvim_create_augroup(
     "custom_autocommands",
@@ -8,7 +8,7 @@ local custom_autocommands = vim.api.nvim_create_augroup(
 vim.api.nvim_create_autocmd("BufWritePost", {
     group = custom_autocommands,
     pattern = vim.env.XDG_CONFIG_HOME .. "/nvim/**/*.lua",
-    callback = user_fn.reload
+    callback = utils.reload
 })
 
 vim.api.nvim_create_autocmd("VimResized", {

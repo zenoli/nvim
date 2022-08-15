@@ -2,8 +2,8 @@ return {
     "neovim/nvim-lspconfig",
     requires = { "williamboman/mason-lspconfig.nvim"},
     config = function()
-        local user_fn = require "user.functions"
-        local map = user_fn.map
+        local utils = require "user.utils"
+        local map = utils.map
         local lspconfig = require "lspconfig"
 
         local servers = {
@@ -56,7 +56,7 @@ return {
         for _, server in pairs(servers) do
             local has_custom_opts, server_custom_opts = pcall(
                 require,
-                "plug-configs.lsp.configs." .. user_fn.to_kebap_case(server)
+                "plug-configs.lsp.configs." .. utils.to_kebap_case(server)
             )
             if has_custom_opts then
                 opts = vim.tbl_deep_extend("force", opts, server_custom_opts)

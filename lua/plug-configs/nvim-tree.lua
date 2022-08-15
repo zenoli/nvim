@@ -30,7 +30,7 @@ return {
                 }
             }
         })
-        local map = require "user.functions".map
+        local map = require "user.utils".map
         map("n", "<leader>e", ":NvimTreeToggle<cr>")
     end
 }

@@ -1,7 +1,7 @@
 return {
     "tpope/vim-fugitive",
     config = function()
-        local map = require "user.functions".map
+        local map = require "user.utils".map
         map("n", "<leader>gg", ":Git<cr>")
         map("n", "<leader>gc", ":Git checkout<space>")
         map("n", "<leader>gb", ":Git branch<space>")
