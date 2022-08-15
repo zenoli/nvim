@@ -1,8 +1,18 @@
 return {
     "neovim/nvim-lspconfig",
+    requires = { "williamboman/mason-lspconfig.nvim"},
     config = function()
-        local map = require "user.functions".map
-        local lua_opts = require "plug-configs.lsp.configs.sumneko-lua"
+        local user_fn = require "user.functions"
+        local map = user_fn.map
+        local lspconfig = require "lspconfig"
+
+        local servers = {
+            "sumneko_lua",
+            "pyright"
+        }
+
+        require("mason-lspconfig").setup({ ensure_installed = servers })
+
         -- Mappings.
         -- See `:help vim.diagnostic.*` for documentation on any of the below functions
         -- map("n", "<space>e", vim.diagnostic.open_float)
@@ -43,11 +53,15 @@ return {
             capabilities = capabilities
         }
 
-        lua_opts = vim.tbl_deep_extend("force", opts, lua_opts)
-        require('lspconfig')['pyright'].setup {
-            on_attach = on_attach,
-            flags = lsp_flags,
-        }
-        require('lspconfig')['sumneko_lua'].setup(lua_opts)
+        for _, server in pairs(servers) do
+            local has_custom_opts, server_custom_opts = pcall(
+                require,
+                "plug-configs.lsp.configs." .. user_fn.to_kebap_case(server)
+            )
+            if has_custom_opts then
+                opts = vim.tbl_deep_extend("force", opts, server_custom_opts)
+            end
+            lspconfig[server].setup(opts)
+        end
     end
 }

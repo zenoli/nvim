@@ -18,4 +18,18 @@ function M.map(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, vim.tbl_extend("force", default_opts, opts))
 end
 
+-- Transforms a string s, given in `kebap-case` and transforms it 
+-- to `snake_case`.
+function M.to_snake_case(s)
+    return string.gsub(s, "-", "_")
+end
+
+-- Transforms a string s, given in `snake_case` and transforms it 
+-- to `kebap-case`.
+function M.to_kebap_case(s)
+    local res = string.gsub(s, "_", "-")
+    print(res)
+    return res
+end
+
 return M
