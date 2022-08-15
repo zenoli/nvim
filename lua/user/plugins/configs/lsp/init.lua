@@ -4,7 +4,7 @@ return {
 
         local lspconfig = require "lspconfig"
         local utils = require "user.utils"
-        local servers = require "user.plugins.lsp.servers"
+        local servers = require "user.plugins.configs.lsp.servers"
         local map = utils.map
 ;
         -- Mappings.
@@ -50,7 +50,7 @@ return {
         for _, server in pairs(servers) do
             local has_custom_opts, server_custom_opts = pcall(
                 require,
-                "user.plugins.lsp.configs." .. utils.to_kebap_case(server)
+                "user.plugins.configs.lsp.configs." .. utils.to_kebap_case(server)
             )
             if has_custom_opts then
                 opts = vim.tbl_deep_extend("force", opts, server_custom_opts)
