@@ -1,4 +1,11 @@
-local map = require "user.functions".map
+local user_fn = require "user.functions"
+local map = user_fn.map
+
+-- Leaders
+vim.g.mapleader = [[ ]] -- Use space as leader
+vim.g.maplocalleader = [[\]] -- Use backslash as localleader
+
+map("n", "<leader>vs", user_fn.reload)
 
 map("", "<space>", "<nop>") -- disable space because leader
 map("n", "q:", "<nop>")
@@ -18,12 +25,17 @@ map("n", "[b", ":bp<cr>")
 map("n", "<leader>D", ":bp<bar>bd #<cr>")
 
 -- Scrolling
-map("n", "<C-j>", "5<c-e>")
-map("n", "<C-k>", "5<c-y>")
+map("n", "<c-j>", "5<c-e>")
+map("n" , "<c-k>", "5<c-y>")
 
 -- Tab navigation
 map("n", "]t", ":tabnext<cr>")
 map("n", "[t", ":tabprevious<cr>")
+
+-- Quickfixlist navigation
+map("n", "]q", ":cnext<cr>")
+map("n", "[q", ":cprevious<cr>")
+map("n", "<leader>cc", ":cclose<cr>")
 
 -- Convenient pasting
 map("n", "<leader>pp", '"0p')
@@ -53,8 +65,8 @@ map("i", "?", "?<c-g>u")
 -- Move selected lines vertically
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
-map("i", "<c-k>", "<esc>:m .-2<cr>==a")
-map("i", "<c-j>", "<esc>:m .+1<CR>==a")
+-- map("i", "<c-s-k>", "<esc>:m .-2<cr>==a")
+-- map("i", "<c-s-j>", "<esc>:m .+1<CR>==a")
 
 -- Move selected lines horizontally
 map("v", ">", ">gv")

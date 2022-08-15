@@ -1,6 +1,3 @@
-vim.g.mapleader = [[ ]] -- Use space as leader
-vim.g.maplocalleader = [[\]] -- Use backslash as localleader
-
 local options = {
     cursorline = true,
 
@@ -10,6 +7,7 @@ local options = {
     ttimeoutlen = 10,
     hidden = true,
     mouse = "a",
+    swapfile = false,
 
     splitbelow = true,
     splitright = true,

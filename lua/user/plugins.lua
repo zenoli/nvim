@@ -17,11 +17,14 @@ return packer.startup(function(use)
     use "tpope/vim-repeat"
     use "tpope/vim-commentary"
     use "szw/vim-maximizer"
-    -- use { "rcarriga/nvim-notify", config =  }
 
+    use (require "plug-configs.nvim-tree")
+    use (require "plug-configs.mason")
+    use (require "plug-configs.mason-lspconfig")
+    use (require "plug-configs.lspconfig")
     use (require "plug-configs.nvim-notify")
     use (require "plug-configs.calendar")
-    use (require "plug-configs.coc")
+    -- use (require "plug-configs.coc")
     use (require "plug-configs.easymotion")
     use (require "plug-configs.fugitive")
     use (require "plug-configs.fzf")
@@ -33,6 +36,7 @@ return packer.startup(function(use)
     use (require "plug-configs.treesitter")
     use (require "plug-configs.vim-tmux-navigator")
     use (require "plug-configs.vimux")
+    use (require "plug-configs.nvim-cmp")
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
