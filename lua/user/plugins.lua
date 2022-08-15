@@ -20,6 +20,7 @@ return packer.startup(function(use)
 
     use (require "plug-configs.nvim-tree")
     use (require "plug-configs.mason")
+    use (require "plug-configs.mason-lspconfig")
     use (require "plug-configs.lsp")
     use (require "plug-configs.nvim-notify")
     use (require "plug-configs.calendar")
