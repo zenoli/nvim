@@ -5,11 +5,11 @@ local custom_autocommands = vim.api.nvim_create_augroup(
     { clear = true }
 )
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-    group = custom_autocommands,
-    pattern = vim.env.XDG_CONFIG_HOME .. "/nvim/**/*.lua",
-    callback = utils.reload
-})
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--     group = custom_autocommands,
+--     pattern = vim.env.XDG_CONFIG_HOME .. "/nvim/**/*.lua",
+--     callback = utils.reload
+-- })
 
 vim.api.nvim_create_autocmd("VimResized", {
     group = custom_autocommands,
