@@ -7,5 +7,6 @@ return {
         map("n", "<leader>gb", ":Git branch<space>")
         map("n", "<leader>gp", ":Git push<cr>")
         map("n", "<leader>gt", ":Git log --graph --oneline --all<cr>")
+        map("n", "<leader>g<leader>", ":Git ", { silent = false })
     end
 }
