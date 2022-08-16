@@ -12,8 +12,8 @@ map("n", "q:", "<nop>")
 
 map("n", "<leader>q", ":q<cr>")
 map("n", "<leader>Q", ":qa<cr>")
-map("n", "<leader>s", ":% s/", { silent = false })
-map("v", "<leader>s", ": s/", { silent = false })
+map("n", "<leader>s<leader>", ":% s/", { silent = false })
+map("v", "<leader>s<leader>", ": s/", { silent = false })
 map("n", "<esc><esc>", ":nohlsearch<cr><esc>")
 
 -- Swap ' and `

@@ -1,5 +1,5 @@
 map <buffer> <Localleader>t <Plug>VimwikiToggleListItem
-" map <C-V> <Plug>VimwikiVSplitLink
+map E <Plug>VimwikiVSplitLink
 
 noremap <buffer> <Localleader><Localleader>t :VimwikiTOC<CR>
 noremap <buffer> <Localleader>b :Vimwiki2HTMLBrowse<CR>

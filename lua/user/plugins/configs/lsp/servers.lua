@@ -1,4 +1,5 @@
 return  {
     "sumneko_lua",
-    "pyright"
+    "pyright",
+    "vimls"
 }
