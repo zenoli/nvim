@@ -1,17 +1,21 @@
 return {
     "nvim-telescope/telescope.nvim",
-    requires = "nvim-lua/plenary.nvim",
+    requires = {
+        "nvim-lua/plenary.nvim",
+        {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    },
     tag = "0.1.0",
     config = function()
         local map = require "user.utils".map
         local actions = require("telescope.actions")
-        require("telescope").setup{
+        local telescope = require "telescope"
+        telescope.setup{
             defaults = {
-                mappings = {
-                    i = {
-                        ["<esc>"] = actions.close
-                    },
-                },
+                -- mappings = {
+                --     i = {
+                --         ["<esc>"] = actions.close
+                --     },
+                -- },
                 prompt_prefix = " ",
                 selection_caret = "❯ ",
                 path_display = { "truncate" },
@@ -31,8 +35,18 @@ return {
                     height = 0.80,
                     preview_cutoff = 120,
                 }
+            },
+            extensions = {
+                fzf = {
+                    fuzzy = true,                    -- false will only do exact matching
+                    override_generic_sorter = true,  -- override the generic sorter
+                    override_file_sorter = true,     -- override the file sorter
+                    case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                    -- the default case_mode is "smart_case"
+                }
             }
         }
+        telescope.load_extension("fzf")
 
         -- Mappings
         map("n", "<leader>f", ":Telescope find_files<cr>")
