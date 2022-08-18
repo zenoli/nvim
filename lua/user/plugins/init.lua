@@ -20,6 +20,7 @@ packer.startup(function(use)
     use "tpope/vim-repeat"
     use "tpope/vim-commentary"
     use "szw/vim-maximizer"
+    use "leafOfTree/vim-svelte-plugin"
 
     use (plug "nvim-tree")
     use (plug "mason")

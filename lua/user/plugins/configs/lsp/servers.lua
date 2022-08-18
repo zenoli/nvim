@@ -1,5 +1,7 @@
 return  {
     "sumneko_lua",
     "pyright",
-    "vimls"
+    "vimls",
+    "tsserver",
+    "svelte"
 }

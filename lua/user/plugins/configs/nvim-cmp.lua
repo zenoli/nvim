@@ -8,6 +8,7 @@ return {
         "hrsh7th/cmp-nvim-lua",
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
+        "rafamadriz/friendly-snippets"
     },
     config = function()
         local kind_icons = {
@@ -44,7 +45,7 @@ return {
             snippet = {
                 -- REQUIRED - you must specify a snippet engine
                 expand = function(args)
-                    require('luasnip').lsp_expand(args.body)
+                    require "luasnip".lsp_expand(args.body)
                 end,
             },
             window = {
