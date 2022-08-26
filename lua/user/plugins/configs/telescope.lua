@@ -2,7 +2,8 @@ return {
     "nvim-telescope/telescope.nvim",
     requires = {
         "nvim-lua/plenary.nvim",
-        {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+        { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+        { "kelly-lin/telescope-ag" }
     },
     tag = "0.1.0",
     config = function()
@@ -47,6 +48,7 @@ return {
             }
         }
         telescope.load_extension("fzf")
+        telescope.load_extension("ag")
 
         -- Mappings
         map("n", "<leader>f", ":Telescope find_files<cr>")
@@ -59,5 +61,6 @@ return {
         map("n", "<leader>sp", ":Telescope builtin<cr>")
         map("n", "gr", ":Telescope lsp_references<cr>")
         map("n", "gd", ":Telescope lsp_definitions<cr>")
+        map("n", "gD", [[<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="vsplit"})<CR>]])
     end
 }

@@ -57,7 +57,7 @@ return {
                 ["<c-j>"] = cmp.mapping.scroll_docs(4),
                 ["<c-space>"] = cmp.mapping.complete(),
                 ["<c-e>"] = cmp.mapping.abort(),
-                ["<cr>"] = cmp.mapping.confirm({ select = true }),
+                ["<cr>"] = cmp.mapping.confirm({ select = false }),
             }),
             sources = {
                 { name = "nvim_lua", group_index = 0 },

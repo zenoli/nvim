@@ -1,5 +1,7 @@
-require "user.options"
-require "user.keybindings"
-require "user.autocommands"
 require "user.plugins"
-require "user.theme"
+require "user.keybindings"
+require "user.options"
+require "user.autocommands"
+-- require "user.theme"
+require "user.abbreviations"
+

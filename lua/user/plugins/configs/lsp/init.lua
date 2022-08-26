@@ -59,7 +59,7 @@ return {
         local on_attach = function(client, bufnr)
             -- Mappings.
             local opts = { buffer = bufnr }
-            map("n", "gD", vim.lsp.buf.declaration, opts)
+            -- map("n", "gD", vim.lsp.buf.declaration, opts)
             -- map("n", "gd", vim.lsp.buf.definition, opts)
             map("n", "K", vim.lsp.buf.hover, opts)
             map("n", "gi", vim.lsp.buf.implementation, opts)

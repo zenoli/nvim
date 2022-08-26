@@ -22,3 +22,11 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     pattern = "*.tmux",
     callback = function() vim.opt.filetype = "tmux" end
 })
+
+-- vim.api.nvim_create_autocmd("CursorHold", {
+--     group = custom_autocommands,
+--     pattern = "*",
+--     callback = function()
+--         vim.diagnostic.open_float()
+--     end
+-- })

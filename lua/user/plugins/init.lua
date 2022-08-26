@@ -9,7 +9,6 @@ packer.startup(function(use)
     use "nvim-lua/plenary.nvim" -- Useful lua functions used lots of plugins
 
     -- Themes
-    use "navarasu/onedark.nvim"
     use "morhetz/gruvbox"
     use "ghifarit53/tokyonight-vim"
     use "NLKNguyen/papercolor-theme"
@@ -20,7 +19,9 @@ packer.startup(function(use)
     use "tpope/vim-repeat"
     use "tpope/vim-commentary"
     use "szw/vim-maximizer"
-    use "leafOfTree/vim-svelte-plugin"
+    -- use "antoinemadec/FixCursorHold.nvim"
+    use { "windwp/nvim-ts-autotag", after = "nvim-treesitter" }
+
 
     use (plug "nvim-tree")
     use (plug "mason")
@@ -34,6 +35,7 @@ packer.startup(function(use)
     use (plug "fugitive")
     -- use (plug "fzf")
     -- use (plug "gitgutter")
+    use (plug "onedark")
     use (plug "gitsigns")
     use (plug "indentline")
     use (plug "lualine")
@@ -43,6 +45,9 @@ packer.startup(function(use)
     use (plug "vim-tmux-navigator")
     use (plug "vimux")
     use (plug("nvim-cmp"))
+    use (plug "neodim")
+    -- use { "leafOfTree/vim-svelte-plugin", config = function () end }
+    use (plug "vim-svelte")
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

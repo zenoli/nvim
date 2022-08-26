@@ -3,5 +3,6 @@ return  {
     "pyright",
     "vimls",
     "tsserver",
-    "svelte"
+    "svelte",
+    "tailwindcss"
 }

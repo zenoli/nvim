@@ -8,6 +8,7 @@ local options = {
     hidden = true,
     mouse = "a",
     swapfile = false,
+    updatetime = 100,
 
     splitbelow = true,
     splitright = true,
