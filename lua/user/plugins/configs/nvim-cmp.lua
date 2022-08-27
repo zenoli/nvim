@@ -43,7 +43,6 @@ return {
         local cmp = require "cmp"
         cmp.setup {
             snippet = {
-                -- REQUIRED - you must specify a snippet engine
                 expand = function(args)
                     require "luasnip".lsp_expand(args.body)
                 end,
@@ -53,11 +52,11 @@ return {
                 documentation = cmp.config.window.bordered(),
             },
             mapping = cmp.mapping.preset.insert({
-                ["<c-k>"] = cmp.mapping.scroll_docs(-4),
-                ["<c-j>"] = cmp.mapping.scroll_docs(4),
-                ["<c-space>"] = cmp.mapping.complete(),
-                ["<c-e>"] = cmp.mapping.abort(),
-                ["<cr>"] = cmp.mapping.confirm({ select = false }),
+                ["<c-space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+                ["<c-k>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+                ["<c-j>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+                ["<c-ep"] = cmp.mapping(cmp.mapping.abort(), { "i", "c" }),
+                ["<cr>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { "i", "c" }),
             }),
             sources = {
                 { name = "nvim_lua", group_index = 0 },
@@ -84,16 +83,17 @@ return {
 
         -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
         cmp.setup.cmdline("/", {
+            view = { entries = "custom" },
             mapping = cmp.mapping.preset.cmdline(),
+            completion = { autocomplete = false },
             sources = {
                 { name = "buffer" }
             }
         })
         cmp.setup.cmdline(':', {
+            view = { entries = "custom" },
             mapping = cmp.mapping.preset.cmdline(),
-            completion = {
-                keyword_length = 2,
-            },
+            completion = { autocomplete = false },
             sources = cmp.config.sources({
                 { name = "path" },
                 { name = "cmdline" }
