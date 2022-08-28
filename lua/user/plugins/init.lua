@@ -48,6 +48,7 @@ packer.startup(function(use)
     use (plug "neodim")
     -- use { "leafOfTree/vim-svelte-plugin", config = function () end }
     use (plug "vim-svelte")
+    use (plug "autopairs")
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
