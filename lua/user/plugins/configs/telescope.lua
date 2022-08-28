@@ -43,22 +43,24 @@ return {
                     override_generic_sorter = true,  -- override the generic sorter
                     override_file_sorter = true,     -- override the file sorter
                     case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-                    -- the default case_mode is "smart_case"
                 }
             }
         }
         telescope.load_extension("fzf")
         telescope.load_extension("ag")
 
-        -- Mappings
+        -- Telescope bindings
         map("n", "<leader>f", ":Telescope find_files<cr>")
         map("n", "<leader>a", ":Telescope live_grep<cr>")
         map("n", "<leader>sh", ":Telescope help_tags<cr>")
+        map("n", "<leader>sH", ":Telescope highlights<cr>")
         map("n", "<leader>sb", ":Telescope buffers<cr>")
         map("n", "<leader>sc", ":Telescope command_history<cr>")
         map("n", "<leader>sm", ":Telescope man_pages<cr>")
         map("n", "<leader>sk", ":Telescope keymaps<cr>")
         map("n", "<leader>sp", ":Telescope builtin<cr>")
+
+        -- Lsp bindings
         map("n", "gr", ":Telescope lsp_references<cr>")
         map("n", "gd", ":Telescope lsp_definitions<cr>")
         map("n", "gD", [[<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="vsplit"})<CR>]])
