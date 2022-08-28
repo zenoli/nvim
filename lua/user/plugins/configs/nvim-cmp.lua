@@ -30,7 +30,7 @@ return {
                 ["<c-space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
                 ["<c-k>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
                 ["<c-j>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-                ["<c-ep"] = cmp.mapping(cmp.mapping.abort(), { "i", "c" }),
+                ["<c-e>"] = cmp.mapping(cmp.mapping.abort(), { "i", "c" }),
                 ["<cr>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { "i", "c" }),
             }),
             sources = {
