@@ -43,7 +43,7 @@ return {
             formatting = {
                 fields = { "kind", "abbr", "menu" },
                 format = require "lspkind".cmp_format {
-                    mode = "symbol_text", -- show only symbol annotations
+                    mode = "symbol_text",
                     preset = "default",
                     maxwidth = 50,
                     before = function (entry, vim_item)

@@ -23,6 +23,7 @@ packer.startup(function(use)
     use { "windwp/nvim-ts-autotag", after = "nvim-treesitter" }
 
 
+    use (plug "lspsaga")
     use (plug "nvim-tree")
     use (plug "mason")
     use (plug "mason-lspconfig")
