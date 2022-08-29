@@ -61,7 +61,7 @@ return {
             local opts = { buffer = bufnr }
             -- map("n", "gD", vim.lsp.buf.declaration, opts)
             -- map("n", "gd", vim.lsp.buf.definition, opts)
-            map("n", "K", vim.lsp.buf.hover, opts)
+            -- map("n", "K", vim.lsp.buf.hover, opts)
             map("n", "gi", vim.lsp.buf.implementation, opts)
             map("n", "<space>D", vim.lsp.buf.type_definition, opts)
             -- map("n", "<space>rn", vim.lsp.buf.rename, opts)

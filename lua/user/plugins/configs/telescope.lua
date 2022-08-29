@@ -52,9 +52,9 @@ return {
         -- Telescope bindings
         map("n", "<leader>f", ":Telescope find_files<cr>")
         map("n", "<leader>a", ":Telescope live_grep<cr>")
+        map("n", "<leader>b", ":Telescope buffers<cr>")
         map("n", "<leader>sh", ":Telescope help_tags<cr>")
         map("n", "<leader>sH", ":Telescope highlights<cr>")
-        map("n", "<leader>sb", ":Telescope buffers<cr>")
         map("n", "<leader>sc", ":Telescope command_history<cr>")
         map("n", "<leader>sm", ":Telescope man_pages<cr>")
         map("n", "<leader>sk", ":Telescope keymaps<cr>")
