@@ -6,7 +6,8 @@ return {
                 "lua",
                 "python",
                 "typescript",
-                "javascript"
+                "javascript",
+                "svelte"
             },
             highlight = {
                 enable = true -- false will disable the whole extension

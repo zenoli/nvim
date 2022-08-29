@@ -13,5 +13,6 @@ return {
         vim.api.nvim_set_hl(0, "TSVariable", { link = "TSParameter" })
         vim.api.nvim_set_hl(0, "IndentBlanklineContextChar", { link = "LineNr" })
         vim.api.nvim_set_hl(0, "IndentBlanklineChar", { link = "VertSplit" })
+        vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { link = "NeoTreeEndOfBuffer" })
     end
 }
