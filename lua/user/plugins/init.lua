@@ -24,7 +24,8 @@ packer.startup(function(use)
 
 
     use (plug "lspsaga")
-    use (plug "nvim-tree")
+    -- use (plug "nvim-tree")
+    use (plug "neo-tree")
     use (plug "mason")
     use (plug "mason-lspconfig")
     use (plug "lsp")
