@@ -18,6 +18,12 @@ return {
         local cmp = require "cmp"
         local luasnip = require "luasnip"
 
+        luasnip.setup {
+            history = true,
+            enable_autosnippets = true
+        }
+
+
         cmp.setup {
             snippet = {
                 expand = function(args)
