@@ -1,7 +1,7 @@
 return {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
-    requires = { 
+    requires = {
         "nvim-lua/plenary.nvim",
         "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
         "MunifTanjim/nui.nvim",
@@ -41,10 +41,11 @@ return {
         {text = " ", texthl = "DiagnosticSignInfo"})
         vim.fn.sign_define("DiagnosticSignHint",
         {text = "", texthl = "DiagnosticSignHint"})
-        -- NOTE: this is changed from v1.x, which used the old style of highlight groups
-        -- in the form "LspDiagnosticsSignWarning"
 
-        require("neo-tree").setup{
+        local navigation = require "user.plugins.configs.neo-tree.navigation"
+        local event_handlers = require "user.plugins.configs.neo-tree.event_handlers"
+
+        require "neo-tree".setup {
             close_if_last_window = true,
             enable_git_status = true,
             enable_diagnostics = false,
@@ -77,54 +78,14 @@ return {
                 },
                 mappings = {
                     ["o"] = "open_with_window_picker",
-                    -- ["l"] = "open_with_window_picker",
-                    -- ["h"] = "close_node",
-                    ["h"] = function(state)
-                        local node = state.tree:get_node()
-                        local is_cwd = function (n)
-                            return n.path == vim.fn.getcwd()
-                        end
-                        if node.type == 'directory' and not is_cwd(node) and node:is_expanded() then
-                            require'neo-tree.sources.filesystem'.toggle_directory(state, node)
-                        else
-                            require'neo-tree.ui.renderer'.focus_node(state, node:get_parent_id())
-                        end
-                    end,
-                    ["l"] = function(state)
-                        local node = state.tree:get_node()
-                        if node.type == 'directory' then
-                            if not node:is_expanded() then
-                                require'neo-tree.sources.filesystem'.toggle_directory(state, node)
-                            elseif node:has_children() then
-                                require'neo-tree.ui.renderer'.focus_node(state, node:get_child_ids()[1])
-                            end
-                        else
-                            require "neo-tree.sources.filesystem.commands".open_with_window_picker(state)
-                        end
-                    end,
+                    ["h"] = navigation.navigate_out,
+                    ["l"] = navigation.navigate_in,
                     ["<c-v>"] = "open_vsplit",
                     ["<c-x>"] = "open_split",
                     ["<c-c>"] = "clear_filter",
                 },
             },
-            event_handlers = {
-                {
-                    event = "neo_tree_window_after_open",
-                    handler = function(args)
-                        if args.position == "left" or args.position == "right" then
-                            vim.cmd("wincmd =")
-                        end
-                    end
-                },
-                {
-                    event = "neo_tree_window_after_close",
-                    handler = function(args)
-                        if args.position == "left" or args.position == "right" then
-                            vim.cmd("wincmd =")
-                        end
-                    end
-                }
-            }
+            event_handlers = event_handlers
         }
 
         local map = require "user.utils".map
