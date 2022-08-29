@@ -4,5 +4,6 @@ return  {
     "vimls",
     "tsserver",
     "svelte",
-    "tailwindcss"
+    "tailwindcss",
+    "bashls"
 }
