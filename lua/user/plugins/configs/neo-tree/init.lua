@@ -12,16 +12,6 @@ return {
         -- Unless you are still migrating, remove the deprecated commands from v1.x
         vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
-        -- If you want icons for diagnostic errors, you'll need to define them somewhere:
-        vim.fn.sign_define("DiagnosticSignError",
-        {text = " ", texthl = "DiagnosticSignError"})
-        vim.fn.sign_define("DiagnosticSignWarn",
-        {text = " ", texthl = "DiagnosticSignWarn"})
-        vim.fn.sign_define("DiagnosticSignInfo",
-        {text = " ", texthl = "DiagnosticSignInfo"})
-        vim.fn.sign_define("DiagnosticSignHint",
-        {text = "", texthl = "DiagnosticSignHint"})
-
         local navigation = require "user.plugins.configs.neo-tree.navigation"
         local event_handlers = require "user.plugins.configs.neo-tree.event_handlers"
 
@@ -48,6 +38,21 @@ return {
                     symbol = "",
                     highlight = "NeoTreeModified",
                 },
+                git_status = {
+                    symbols = {
+                        -- Change type
+                        added     = "", -- or "✚"
+                        modified  = "", -- or ""
+                        deleted   = "✖",-- this can only be used in the git_status source
+                        renamed   = "",-- this can only be used in the git_status source
+                        -- Status type
+                        untracked = "",
+                        ignored   = "",
+                        unstaged  = "",
+                        staged    = "",
+                        conflict  = "",
+                    },
+                },
             },
             window = {
                 position = "left",
@@ -62,8 +67,10 @@ return {
                     ["l"] = navigation.navigate_in,
                     ["<c-v>"] = "open_vsplit",
                     ["<c-x>"] = "open_split",
-                    ["<c-c>"] = "clear_filter",
                 },
+            },
+            filesystem = {
+                follow_current_file = true
             },
             event_handlers = event_handlers
         }
