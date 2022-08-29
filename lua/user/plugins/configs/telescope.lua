@@ -6,6 +6,8 @@ return {
         { "kelly-lin/telescope-ag" }
     },
     tag = "0.1.0",
+    cmd = "Telescope",
+    module = "telescope",
     config = function()
         local map = require "user.utils".map
         local actions = require("telescope.actions")
@@ -49,20 +51,20 @@ return {
         telescope.load_extension("fzf")
         telescope.load_extension("ag")
 
-        -- Telescope bindings
-        map("n", "<leader>f", ":Telescope find_files<cr>")
-        map("n", "<leader>a", ":Telescope live_grep<cr>")
-        map("n", "<leader>b", ":Telescope buffers<cr>")
-        map("n", "<leader>sh", ":Telescope help_tags<cr>")
-        map("n", "<leader>sH", ":Telescope highlights<cr>")
-        map("n", "<leader>sc", ":Telescope command_history<cr>")
-        map("n", "<leader>sm", ":Telescope man_pages<cr>")
-        map("n", "<leader>sk", ":Telescope keymaps<cr>")
-        map("n", "<leader>sp", ":Telescope builtin<cr>")
+        -- -- Telescope bindings
+        -- map("n", "<leader>f", function() require("telescope.builtin").find_files() end)
+        -- map("n", "<leader>a", ":Telescope live_grep<cr>")
+        -- map("n", "<leader>b", ":Telescope buffers<cr>")
+        -- map("n", "<leader>sh", ":Telescope help_tags<cr>")
+        -- map("n", "<leader>sH", ":Telescope highlights<cr>")
+        -- map("n", "<leader>sc", ":Telescope command_history<cr>")
+        -- map("n", "<leader>sm", ":Telescope man_pages<cr>")
+        -- map("n", "<leader>sk", ":Telescope keymaps<cr>")
+        -- map("n", "<leader>sp", ":Telescope builtin<cr>")
 
-        -- Lsp bindings
-        map("n", "gr", ":Telescope lsp_references<cr>")
-        map("n", "gd", ":Telescope lsp_definitions<cr>")
-        map("n", "gD", [[<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="vsplit"})<CR>]])
+        -- -- Lsp bindings
+        -- map("n", "gr", ":Telescope lsp_references<cr>")
+        -- map("n", "gd", ":Telescope lsp_definitions<cr>")
+        -- map("n", "gD", [[<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="vsplit"})<CR>]])
     end
 }

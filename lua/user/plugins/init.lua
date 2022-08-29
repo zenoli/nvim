@@ -5,6 +5,7 @@ end
 
 -- Install your plugins here
 packer.startup(function(use)
+    use "lewis6991/impatient.nvim"
     use "wbthomason/packer.nvim" -- Have packer manage itself
     use "nvim-lua/plenary.nvim" -- Useful lua functions used lots of plugins
 
@@ -12,7 +13,7 @@ packer.startup(function(use)
     use "morhetz/gruvbox"
     use "ghifarit53/tokyonight-vim"
     use "NLKNguyen/papercolor-theme"
-    use "vimwiki/vimwiki"
+    use { "vimwiki/vimwiki", cmd = { "VimwikiDiaryIndex", "VimwikiMakeDiaryNote" } }
     use "junegunn/gv.vim"
 
     use "kana/vim-surround"
@@ -32,7 +33,7 @@ packer.startup(function(use)
     use (plug "nvim-notify")
     use (plug "calendar")
     use (plug "telescope")
-    use (plug "easymotion")
+    -- use (plug "easymotion")
     use (plug "fugitive")
     use (plug "onedark")
     use (plug "gitsigns")

@@ -1,5 +1,7 @@
 return {
     "tpope/vim-fugitive",
+    key = "<leader>gg",
+    cmd = "Git",
     config = function()
         local map = require "user.utils".map
         map("n", "<leader>gg", ":Git<cr>")

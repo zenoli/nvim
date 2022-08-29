@@ -34,6 +34,7 @@ function M.reload()
     -- packer.compile() -- Recompile `packer_compiled.lua`
     vim.notify("Reloading Neovim config...", vim.log.levels.INFO, { render = "minimal" })
     vim.cmd("nohlsearch")
+    vim.cmd(":LuaCacheClear")
 end
 
 function M.map(mode, lhs, rhs, opts)
@@ -53,5 +54,10 @@ end
 function M.to_kebap_case(s)
     return string.gsub(s, "_", "-")
 end
+
+function M.is_available(plugin)
+    return packer_plugins ~= nil and packer_plugins[plugin] ~= nil
+end
+
 
 return M

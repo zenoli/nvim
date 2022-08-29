@@ -6,7 +6,7 @@ return {
             style = "cool",
             transparent = false
         }
-        onedark.load()
+        -- onedark.load()
         vim.cmd [[colorscheme onedark]]
         vim.api.nvim_set_hl(0, "Search", { link = "Visual" })
         vim.api.nvim_set_hl(0, "IncSearch", { link = "Visual" })
