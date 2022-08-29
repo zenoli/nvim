@@ -77,13 +77,54 @@ return {
                 },
                 mappings = {
                     ["o"] = "open_with_window_picker",
-                    ["l"] = "open_with_window_picker",
-                    ["h"] = "close_node",
+                    -- ["l"] = "open_with_window_picker",
+                    -- ["h"] = "close_node",
+                    ["h"] = function(state)
+                        local node = state.tree:get_node()
+                        local is_cwd = function (n)
+                            return n.path == vim.fn.getcwd()
+                        end
+                        if node.type == 'directory' and not is_cwd(node) and node:is_expanded() then
+                            require'neo-tree.sources.filesystem'.toggle_directory(state, node)
+                        else
+                            require'neo-tree.ui.renderer'.focus_node(state, node:get_parent_id())
+                        end
+                    end,
+                    ["l"] = function(state)
+                        local node = state.tree:get_node()
+                        if node.type == 'directory' then
+                            if not node:is_expanded() then
+                                require'neo-tree.sources.filesystem'.toggle_directory(state, node)
+                            elseif node:has_children() then
+                                require'neo-tree.ui.renderer'.focus_node(state, node:get_child_ids()[1])
+                            end
+                        else
+                            require "neo-tree.sources.filesystem.commands".open_with_window_picker(state)
+                        end
+                    end,
                     ["<c-v>"] = "open_vsplit",
                     ["<c-x>"] = "open_split",
                     ["<c-c>"] = "clear_filter",
                 },
             },
+            event_handlers = {
+                {
+                    event = "neo_tree_window_after_open",
+                    handler = function(args)
+                        if args.position == "left" or args.position == "right" then
+                            vim.cmd("wincmd =")
+                        end
+                    end
+                },
+                {
+                    event = "neo_tree_window_after_close",
+                    handler = function(args)
+                        if args.position == "left" or args.position == "right" then
+                            vim.cmd("wincmd =")
+                        end
+                    end
+                }
+            }
         }
 
         local map = require "user.utils".map
