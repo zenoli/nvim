@@ -12,6 +12,8 @@ local function exec_if_exists(module_name, cb)
     end
 end
 
+M.exec_if_exists = exec_if_exists
+
 function M.reload()
     exec_if_exists(
         "plenary.reload",

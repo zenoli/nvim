@@ -70,6 +70,8 @@ return {
                     ["<c-v>"] = "open_vsplit",
                     ["<c-x>"] = "open_split",
                     ["q"] = "clear_filter",
+                    ["/"] = "noop", -- "noop" removes a default mapping
+                    ["g/"] = "fuzzy_finder",
                 },
             },
             filesystem = {
