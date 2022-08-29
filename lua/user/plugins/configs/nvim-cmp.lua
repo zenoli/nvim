@@ -16,11 +16,12 @@ return {
 
         require("luasnip.loaders.from_vscode").lazy_load()
         local cmp = require "cmp"
+        local luasnip = require "luasnip"
 
         cmp.setup {
             snippet = {
                 expand = function(args)
-                    require "luasnip".lsp_expand(args.body)
+                    luasnip.lsp_expand(args.body)
                 end,
             },
             window = {
@@ -79,5 +80,10 @@ return {
                 { name = "cmdline" }
             }),
         })
+
+
+        local map = require "user.utils".map
+        map({"i", "n", "s"}, "<c-l>", function () luasnip.expand_or_jump() end)
+        map({"i", "n", "s"}, "<c-h>", function () luasnip.jump(-1) end)
     end
 }

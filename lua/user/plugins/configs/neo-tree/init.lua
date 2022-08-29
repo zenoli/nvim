@@ -82,7 +82,7 @@ return {
             filesystem = {
                 follow_current_file = false,
                 components = {
-                    clipboard = function(config, node, state) 
+                    clipboard = function(config, node, state)
                         local highlights = require("neo-tree.ui.highlights")
                         local clipboard = state.clipboard or {}
                         local clipboard_state = clipboard[node:get_id()]

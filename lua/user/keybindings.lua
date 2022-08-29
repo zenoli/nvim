@@ -78,6 +78,8 @@ map("v", "K", ":m '<-2<CR>gv=gv")
 -- Move selected lines horizontally
 map("v", ">", ">gv")
 map("v", "<", "<gv")
+map("s", ">", ">")
+map("s", "<", "<")
 
 map("n", "<leader>gg", ":Git<cr>")
 
