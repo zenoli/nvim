@@ -67,10 +67,11 @@ return {
                     ["l"] = navigation.navigate_in,
                     ["<c-v>"] = "open_vsplit",
                     ["<c-x>"] = "open_split",
+                    ["q"] = "clear_filter",
                 },
             },
             filesystem = {
-                follow_current_file = true
+                follow_current_file = false
             },
             event_handlers = event_handlers
         }
