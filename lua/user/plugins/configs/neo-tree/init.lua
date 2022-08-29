@@ -17,6 +17,11 @@ return {
         local navigation = require "user.plugins.configs.neo-tree.navigation"
         local event_handlers = require "user.plugins.configs.neo-tree.event_handlers"
 
+        local clipboard_icons = {
+            cut = "",
+            copy = ""
+        }
+
         require "neo-tree".setup {
             close_if_last_window = true,
             enable_git_status = true,
@@ -75,7 +80,21 @@ return {
                 },
             },
             filesystem = {
-                follow_current_file = false
+                follow_current_file = false,
+                components = {
+                    clipboard = function(config, node, state) 
+                        local highlights = require("neo-tree.ui.highlights")
+                        local clipboard = state.clipboard or {}
+                        local clipboard_state = clipboard[node:get_id()]
+                        if not clipboard_state then
+                            return {}
+                        end
+                        return {
+                            text = clipboard_icons[clipboard_state.action] or clipboard_state.action,
+                            highlight = config.highlight or highlights.DIM_TEXT,
+                        }
+                    end
+                }
             },
             event_handlers = event_handlers
         }
