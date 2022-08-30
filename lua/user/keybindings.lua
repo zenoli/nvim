@@ -1,9 +1,3 @@
--- local telescope_ok, _ = pcall(require, "user.plugins.configs.telescope.keybindings")
--- if not telescope_ok then
---     vim.notify "Telescope not found. No keybindings set for telescope."
--- end
-
--- require "user.plugins.configs.telescope.keybindings"
 local utils = require "user.utils"
 local map = utils.map
 

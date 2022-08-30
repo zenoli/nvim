@@ -26,6 +26,7 @@ return {
             close_if_last_window = true,
             enable_git_status = true,
             enable_diagnostics = false,
+            log_level = "warn",
             popup_border_style = "rounded",
             default_component_configs = {
                 indent = {

@@ -13,9 +13,9 @@ packer.startup(function(use)
     use "morhetz/gruvbox"
     use "ghifarit53/tokyonight-vim"
     use "NLKNguyen/papercolor-theme"
+
     use { "vimwiki/vimwiki", cmd = { "VimwikiDiaryIndex", "VimwikiMakeDiaryNote" } }
     use "junegunn/gv.vim"
-
     use "kana/vim-surround"
     use "tpope/vim-repeat"
     use "tpope/vim-commentary"
