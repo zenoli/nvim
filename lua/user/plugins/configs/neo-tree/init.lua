@@ -102,6 +102,6 @@ return {
 
         local map = require "user.utils".map
         map("n", "<leader>e", ":Neotree toggle<cr>")
-        vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
+        map("n", "<localleader><localleader>", ":Neotree reveal<cr>")
     end
 }
