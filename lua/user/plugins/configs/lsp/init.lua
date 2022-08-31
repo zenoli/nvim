@@ -1,17 +1,16 @@
 return {
     "neovim/nvim-lspconfig",
+    wants = {
+        "mason-lspconfig.nvim",
+        "telescope.nvim"
+    },
     config = function()
 
         local lspconfig = require "lspconfig"
         local utils = require "user.utils"
-        local servers = require "user.plugins.configs.lsp.servers"
+        -- local servers = require "user.plugins.configs.lsp.servers"
+        local servers = require "mason-lspconfig".get_installed_servers()
         local map = utils.map
-
-        -- Mappings.
-        -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-        -- map("n", "<space>e", vim.diagnostic.open_float)
-        map("n", "[d", vim.diagnostic.goto_prev)
-        map("n", "]d", vim.diagnostic.goto_next)
 
         local signs = {
             { name = "DiagnosticSignError", text = "" },
@@ -64,6 +63,9 @@ return {
             -- map("n", "K", vim.lsp.buf.hover, opts)
             map("n", "gi", vim.lsp.buf.implementation, opts)
             map("n", "<space>D", vim.lsp.buf.type_definition, opts)
+            map("n", "gr", function () require("telescope.builtin").lsp_references() end)
+            map("n", "gd", function () require("telescope.builtin").lsp_definitions() end)
+            map("n", "gD", function () require("telescope.builtin").lsp_definitions({ jump_type = "vsplit" }) end)
             -- map("n", "<space>rn", vim.lsp.buf.rename, opts)
             -- map("n", "<space>ca", vim.lsp.buf.code_action, opts)
             -- map("n", "gr", vim.lsp.buf.references, opts)
@@ -98,5 +100,9 @@ return {
             end
             lspconfig[server].setup(opts)
         end
+        
+        -- Keybindings
+        map("n", "[d", vim.diagnostic.goto_prev)
+        map("n", "]d", vim.diagnostic.goto_next)
     end
 }

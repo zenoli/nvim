@@ -2,7 +2,7 @@ return {
     "nvim-telescope/telescope.nvim",
     requires = {
         "nvim-lua/plenary.nvim",
-        { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+        { "nvim-telescope/telescope-fzf-native.nvim" },
         { "kelly-lin/telescope-ag" }
     },
     tag = "0.1.0",

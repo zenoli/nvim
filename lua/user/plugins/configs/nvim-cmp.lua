@@ -2,16 +2,16 @@ return {
     "hrsh7th/nvim-cmp",
     requires = {
         "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-cmdline",
-        "hrsh7th/cmp-nvim-lua",
-        "L3MON4D3/LuaSnip",
-        "saadparwaiz1/cmp_luasnip",
-        "rafamadriz/friendly-snippets",
-        "onsails/lspkind.nvim"
+        { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+        { "hrsh7th/cmp-path", after = "nvim-cmp" },
+        { "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
+        { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
+        { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
+        -- { "rafamadriz/friendly-snippets", opt = true },
+        -- { "onsails/lspkind.nvim", opt = true }
     },
-    -- event = "InsertEnter",
+    wants = { "LuaSnip", "friendly-snippets", "lspkind.nvim" },
+    event = "InsertEnter",
     config = function()
 
         require("luasnip.loaders.from_vscode").lazy_load()

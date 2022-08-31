@@ -10,18 +10,27 @@ packer.startup(function(use)
     use "nvim-lua/plenary.nvim" -- Useful lua functions used lots of plugins
 
     -- Themes
-    use "morhetz/gruvbox"
-    use "ghifarit53/tokyonight-vim"
-    use "NLKNguyen/papercolor-theme"
+    use { "morhetz/gruvbox", cmd = "colorscheme gruvbox"}
+    use { "ghifarit53/tokyonight-vim", cmd = "colorscheme tokyonight" }
+    use { "NLKNguyen/papercolor-theme", cmd = "colorscheme tokyonight" }
 
     use { "vimwiki/vimwiki", cmd = { "VimwikiDiaryIndex", "VimwikiMakeDiaryNote" } }
     use "junegunn/gv.vim"
     use "kana/vim-surround"
     use "tpope/vim-repeat"
     use "tpope/vim-commentary"
-    use "szw/vim-maximizer"
-    -- use "antoinemadec/FixCursorHold.nvim"
+    use { "szw/vim-maximizer", keys = "<f3>" }
+    use { "j-hui/fidget.nvim", config = function () require "fidget".setup() end }
     use { "windwp/nvim-ts-autotag", after = "nvim-treesitter" }
+    use {
+        "L3MON4D3/LuaSnip",
+        config = function ()
+            require("luasnip.loaders.from_vscode").lazy_load()
+        end,
+        opt = true
+    }
+    use { "rafamadriz/friendly-snippets", opt = true }
+    use { "onsails/lspkind.nvim", opt = true }
 
 
     use (plug "lspsaga")

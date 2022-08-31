@@ -11,7 +11,7 @@ map("n", "<leader>sm", function () require("telescope.builtin").man_pages() end)
 map("n", "<leader>sk", function () require("telescope.builtin").keymaps() end)
 map("n", "<leader>st", function () require("telescope.builtin").builtin() end)
 
--- Lsp bindings
-map("n", "gr", function () require("telescope.builtin").lsp_references() end)
-map("n", "gd", function () require("telescope.builtin").lsp_definitions() end)
-map("n", "gD", function () require("telescope.builtin").lsp_definitions({ jump_type = "vsplit" }) end)
+-- -- Lsp bindings
+-- map("n", "gr", function () require("telescope.builtin").lsp_references() end)
+-- map("n", "gd", function () require("telescope.builtin").lsp_definitions() end)
+-- map("n", "gD", function () require("telescope.builtin").lsp_definitions({ jump_type = "vsplit" }) end)
