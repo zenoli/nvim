@@ -18,7 +18,10 @@ return {
                 "python",
                 "typescript",
                 "javascript",
-                "svelte"
+                "svelte",
+                "vim",
+                "bash",
+                "css"
             },
             highlight = {
                 enable = true -- false will disable the whole extension
