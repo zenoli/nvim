@@ -2,8 +2,8 @@ return {
     "nvim-telescope/telescope.nvim",
     requires = {
         "nvim-lua/plenary.nvim",
-        { "nvim-telescope/telescope-fzf-native.nvim" },
-        { "kelly-lin/telescope-ag" }
+        -- { "nvim-telescope/telescope-fzf-native.nvim" },
+        -- { "kelly-lin/telescope-ag" }
     },
     tag = "0.1.0",
     cmd = "Telescope",
@@ -48,7 +48,7 @@ return {
                 }
             }
         }
-        telescope.load_extension("fzf")
-        telescope.load_extension("ag")
+        -- telescope.load_extension("fzf")
+        -- telescope.load_extension("ag")
     end
 }

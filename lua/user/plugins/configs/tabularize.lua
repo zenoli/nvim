@@ -1,6 +1,7 @@
 return {
     "godlygeek/tabular",
     config = function()
-        vim.cmd('source ~/.config/nvim/plug-configs/tabularize.vim')
+        local map = require "user.utils".map
+        map("v", "<leader>tt", ":Tabularize /")
     end
 }

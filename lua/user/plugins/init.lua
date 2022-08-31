@@ -15,7 +15,7 @@ packer.startup(function(use)
     use { "NLKNguyen/papercolor-theme", cmd = "colorscheme tokyonight" }
 
     use { "vimwiki/vimwiki", cmd = { "VimwikiDiaryIndex", "VimwikiMakeDiaryNote" } }
-    use "junegunn/gv.vim"
+    use {"junegunn/gv.vim", cmd = "GV", wants = "vim-fugitive" }
     use "kana/vim-surround"
     use "tpope/vim-repeat"
     use "tpope/vim-commentary"
@@ -31,6 +31,17 @@ packer.startup(function(use)
     }
     use { "rafamadriz/friendly-snippets", opt = true }
     use { "onsails/lspkind.nvim", opt = true }
+    use {
+        "kelly-lin/telescope-ag",
+        after = "telescope.nvim",
+        config = function () require "telescope".load_extension "ag" end
+    }
+    use {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        run = "make",
+        after = "telescope.nvim",
+        config = function () require "telescope".load_extension "fzf" end
+    }
 
 
     use (plug "lspsaga")
