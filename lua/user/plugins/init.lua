@@ -15,7 +15,7 @@ packer.startup(function(use)
     use { "NLKNguyen/papercolor-theme", cmd = "colorscheme tokyonight" }
 
     use { "vimwiki/vimwiki", cmd = { "VimwikiDiaryIndex", "VimwikiMakeDiaryNote" } }
-    use {"junegunn/gv.vim", cmd = "GV", wants = "vim-fugitive" }
+    use { "junegunn/gv.vim", cmd = "GV", wants = "vim-fugitive" }
     use "kana/vim-surround"
     use "tpope/vim-repeat"
     use "tpope/vim-commentary"
