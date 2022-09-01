@@ -12,7 +12,7 @@ packer.startup(function(use)
     -- Themes
     use { "morhetz/gruvbox", cmd = "colorscheme gruvbox"}
     use { "ghifarit53/tokyonight-vim", cmd = "colorscheme tokyonight" }
-    use { "NLKNguyen/papercolor-theme", cmd = "colorscheme tokyonight" }
+    use { "NLKNguyen/papercolor-theme", cmd = "colorscheme PaperColor" }
 
     use { "vimwiki/vimwiki", cmd = { "VimwikiDiaryIndex", "VimwikiMakeDiaryNote" } }
     use { "junegunn/gv.vim", cmd = "GV", wants = "vim-fugitive" }
