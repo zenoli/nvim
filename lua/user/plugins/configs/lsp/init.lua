@@ -62,7 +62,7 @@ return {
             -- map("n", "gd", vim.lsp.buf.definition, opts)
             -- map("n", "K", vim.lsp.buf.hover, opts)
             map("n", "gi", vim.lsp.buf.implementation, opts)
-            map("n", "<space>D", vim.lsp.buf.type_definition, opts)
+            map("n", "<space>gd", vim.lsp.buf.type_definition, opts)
             map("n", "gr", function () require("telescope.builtin").lsp_references() end)
             map("n", "gd", function () require("telescope.builtin").lsp_definitions() end)
             map("n", "gD", function () require("telescope.builtin").lsp_definitions({ jump_type = "vsplit" }) end)
