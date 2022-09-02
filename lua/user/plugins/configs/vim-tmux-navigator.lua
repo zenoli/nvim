@@ -1,6 +1,10 @@
 return {
     "christoomey/vim-tmux-navigator",
     config = function()
-        vim.cmd('source ~/.config/nvim/plug-configs/vim-tmux-navigator.vim')
+        local map = require "user.utils".map
+        map("n", "<m-h>", ":TmuxNavigateLeft<cr>")
+        map("n", "<m-j>", ":TmuxNavigateDown<cr>")
+        map("n", "<m-k>", ":TmuxNavigateUp<cr>")
+        map("n", "<m-l>", ":TmuxNavigateRigh<cr>")
     end
 }
