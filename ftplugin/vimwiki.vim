@@ -1,9 +1,8 @@
-map <buffer> <Localleader>t <Plug>VimwikiToggleListItem
-map E <Plug>VimwikiVSplitLink
+map <buffer> <localleader>t <Plug>VimwikiToggleListItem
+map <buffer> <c-v> <plug>VimwikiVSplitLink
 
-noremap <buffer> <Localleader><Localleader>t :VimwikiTOC<CR>
-noremap <buffer> <Localleader>b :Vimwiki2HTMLBrowse<CR>
+noremap <buffer> <localleader><Localleader>t :VimwikiTOC<cr>
+noremap <buffer> <localleader>b :Vimwiki2HTMLBrowse<cr>
 
-
-map <buffer> <Localleader>p <Plug>VimwikiDiaryPrevDay
-map <buffer> <Localleader>n <Plug>VimwikiDiaryNextDay
+map <buffer> [d <Plug>VimwikiDiaryPrevDay
+map <buffer> ]d <plug>VimwikiDiaryNextDay
