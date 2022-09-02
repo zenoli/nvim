@@ -4,10 +4,10 @@ return {
         require("lualine").setup {
             options = {
                 disabled_filetypes = {
-                    statusline = { "neo-tree" },
+                    statusline = { "neo-tree", "calendar" },
                     winbar = {},
                 },
-                ignore_focus = { "neo-tree" }
+                ignore_focus = { "neo-tree", "calendar" }
             }
         }
     end
