@@ -3,11 +3,11 @@
 
 local M = {}
 
-local function exec_if_exists(module_name, cb)
+local function exec_if_exists(module_name, cb, silent)
     local status_ok, module = pcall(require, module_name)
     if status_ok then
         cb(module)
-    else
+    elseif not silent then
         vim.notify("Failed to load module " .. module_name)
     end
 end
@@ -21,8 +21,6 @@ function M.reload()
             m.reload_module "user"
         end
     )
-    -- -- plenary.reload_module "user.plugins"
-    -- -- plenary.reload_module "user"
     dofile(vim.env.MYVIMRC)
 
     exec_if_exists(
@@ -32,8 +30,6 @@ function M.reload()
             m.compile()
         end
     )
-    -- packer.install() -- If new plugins detected, install, do nothing otherwise.
-    -- packer.compile() -- Recompile `packer_compiled.lua`
     vim.notify("Reloading Neovim config...", vim.log.levels.INFO, { render = "minimal" })
     vim.cmd("nohlsearch")
     vim.cmd(":LuaCacheClear")

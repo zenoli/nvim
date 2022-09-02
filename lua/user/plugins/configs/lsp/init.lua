@@ -11,6 +11,7 @@ return {
         -- local servers = require "user.plugins.configs.lsp.servers"
         local servers = require "mason-lspconfig".get_installed_servers()
         local map = utils.map
+        local execute_if_exists = utils.exec_if_exists
 
         local signs = {
             { name = "DiagnosticSignError", text = "" },
@@ -69,6 +70,22 @@ return {
             -- map("n", "<space>rn", vim.lsp.buf.rename, opts)
             -- map("n", "<space>ca", vim.lsp.buf.code_action, opts)
             -- map("n", "gr", vim.lsp.buf.references, opts)
+
+            local has_custom_settings, server_settings = pcall(
+                require,
+                "user.plugins.configs.lsp.settings." .. utils.to_kebap_case(client.name)
+            )
+            if has_custom_settings and server_settings.on_attach then
+                server_settings.on_attach(client, bufnr)
+            end
+
+            execute_if_exists(
+                "user.plugins.configs.lsp.settings." .. utils.to_kebap_case(client.name),
+                function (m)
+                    if (m.on_attach) then m.on_attach(client, bufnr) end
+                end,
+                true
+            )
         end
 
         local lsp_flags = {
@@ -91,13 +108,15 @@ return {
         }
 
         for _, server in pairs(servers) do
-            local has_custom_opts, server_custom_opts = pcall(
-                require,
-                "user.plugins.configs.lsp.settings." .. utils.to_kebap_case(server)
+            execute_if_exists(
+                "user.plugins.configs.lsp.settings." .. utils.to_kebap_case(server),
+                function (m)
+                    if (m.opts) then
+                        opts = vim.tbl_deep_extend("force", opts, m.opts)
+                    end
+                end,
+                true
             )
-            if has_custom_opts then
-                opts = vim.tbl_deep_extend("force", opts, server_custom_opts)
-            end
             lspconfig[server].setup(opts)
         end
         
