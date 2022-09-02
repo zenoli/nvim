@@ -88,22 +88,32 @@ return {
             vim.notify("cmp_nvim_lsp is not installed...", vim.log.levels.WARN)
         end
 
-        local opts = {
-            lsp_flags = lsp_flags,
-            on_attach = on_attach,
-            capabilities = capabilities
-        }
 
         for _, server in pairs(servers) do
-            execute_if_exists(
-                "user.plugins.configs.lsp.settings." .. utils.to_kebap_case(server),
-                function (m)
-                    if (m.opts) then
-                        opts = vim.tbl_deep_extend("force", opts, m.opts)
-                    end
-                end,
-                true
+            local opts = {
+                lsp_flags = lsp_flags,
+                capabilities = capabilities
+            }
+
+            local has_custom_config, custom_config = pcall(
+                require,
+                "user.plugins.configs.lsp.settings." .. utils.to_kebap_case(server)
             )
+            if has_custom_config then
+                -- Add server specific settings
+                if custom_config.settings then
+                    opts.settings = custom_config.settings
+                end
+                -- Add server specific callback
+                if custom_config.on_attach then
+                    opts.on_attach = function(client, bufnr)
+                        on_attach(client, bufnr)
+                        custom_config.on_attach(client, bufnr)
+                    end
+                end
+            else
+                opts.on_attach = on_attach
+            end
             lspconfig[server].setup(opts)
         end
 

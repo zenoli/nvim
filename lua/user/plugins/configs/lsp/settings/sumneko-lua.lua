@@ -6,17 +6,15 @@ M.on_attach = function (client, bufnr)
 end
 
 
-M.opts = {
-    settings = {
-        Lua = {
-            runtime = {
-                version = "LuaJIT",
-            },
-            diagnostics = {
-                globals = {},
-            },
+M.settings = {
+    Lua = {
+        runtime = {
+            version = "LuaJIT",
         },
-    }
+        diagnostics = {
+            globals = {},
+        },
+    },
 }
 
 return M

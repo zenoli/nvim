@@ -1,14 +1,12 @@
 local M = {}
 
-M.opts = {
-    settings = {
-        svelte = {
-            plugin = {
-                -- typescript = {},
-                -- svelte = {},
-                -- html = {},
-                -- css = {}
-            }
+M.settings = {
+    svelte = {
+        plugin = {
+            -- typescript = {},
+            -- svelte = {},
+            -- html = {},
+            -- css = {}
         }
     }
 }
