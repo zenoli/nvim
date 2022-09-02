@@ -59,26 +59,13 @@ return {
         local on_attach = function(client, bufnr)
             -- Mappings.
             local opts = { buffer = bufnr }
-            -- map("n", "gD", vim.lsp.buf.declaration, opts)
-            -- map("n", "gd", vim.lsp.buf.definition, opts)
-            -- map("n", "K", vim.lsp.buf.hover, opts)
             map("n", "gi", vim.lsp.buf.implementation, opts)
             map("n", "<space>gd", vim.lsp.buf.type_definition, opts)
             map("n", "gr", function () require("telescope.builtin").lsp_references() end)
             map("n", "gd", function () require("telescope.builtin").lsp_definitions() end)
             map("n", "gD", function () require("telescope.builtin").lsp_definitions({ jump_type = "vsplit" }) end)
-            -- map("n", "<space>rn", vim.lsp.buf.rename, opts)
-            -- map("n", "<space>ca", vim.lsp.buf.code_action, opts)
-            -- map("n", "gr", vim.lsp.buf.references, opts)
 
-            local has_custom_settings, server_settings = pcall(
-                require,
-                "user.plugins.configs.lsp.settings." .. utils.to_kebap_case(client.name)
-            )
-            if has_custom_settings and server_settings.on_attach then
-                server_settings.on_attach(client, bufnr)
-            end
-
+            -- Language specific settings
             execute_if_exists(
                 "user.plugins.configs.lsp.settings." .. utils.to_kebap_case(client.name),
                 function (m)
@@ -119,7 +106,7 @@ return {
             )
             lspconfig[server].setup(opts)
         end
-        
+
         -- Keybindings
         map("n", "[d", vim.diagnostic.goto_prev)
         map("n", "]d", vim.diagnostic.goto_next)

@@ -32,7 +32,7 @@ function M.reload()
     )
     vim.notify("Reloading Neovim config...", vim.log.levels.INFO, { render = "minimal" })
     vim.cmd("nohlsearch")
-    vim.cmd(":LuaCacheClear")
+    vim.cmd("LuaCacheClear")
 end
 
 function M.map(mode, lhs, rhs, opts)
