@@ -2,14 +2,13 @@ return {
     "neovim/nvim-lspconfig",
     wants = {
         "mason-lspconfig.nvim",
-        "telescope.nvim"
+        "telescope.nvim",
     },
     config = function()
-
-        local lspconfig = require "lspconfig"
-        local utils = require "user.utils"
+        local lspconfig = require("lspconfig")
+        local utils = require("user.utils")
         -- local servers = require "user.plugins.configs.lsp.servers"
-        local servers = require "mason-lspconfig".get_installed_servers()
+        local servers = require("mason-lspconfig").get_installed_servers()
         local map = utils.map
 
         local signs = {
@@ -52,7 +51,6 @@ return {
             border = "rounded",
         })
 
-
         -- Use an on_attach function to only map the following keys
         -- after the language server attaches to the current buffer
         local on_attach = function(client, bufnr)
@@ -60,10 +58,19 @@ return {
             local opts = { buffer = bufnr }
             map("n", "gi", vim.lsp.buf.implementation, opts)
             map("n", "<leader>F", vim.lsp.buf.format, opts)
+            map("v", "<leader>F", function()
+                vim.lsp.buf.range_formatting()
+            end, opts)
             map("n", "<space>gd", vim.lsp.buf.type_definition, opts)
-            map("n", "gr", function () require("telescope.builtin").lsp_references() end)
-            map("n", "gd", function () require("telescope.builtin").lsp_definitions() end)
-            map("n", "gD", function () require("telescope.builtin").lsp_definitions({ jump_type = "vsplit" }) end)
+            map("n", "gr", function()
+                require("telescope.builtin").lsp_references()
+            end)
+            map("n", "gd", function()
+                require("telescope.builtin").lsp_definitions()
+            end)
+            map("n", "gD", function()
+                require("telescope.builtin").lsp_definitions({ jump_type = "vsplit" })
+            end)
         end
 
         local lsp_flags = {
@@ -72,18 +79,17 @@ return {
         }
 
         local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-        local capabilities =  vim.lsp.protocol.make_client_capabilities()
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
         if status_ok then
             capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
         else
             vim.notify("cmp_nvim_lsp is not installed...", vim.log.levels.WARN)
         end
 
-
         for _, server in pairs(servers) do
             local opts = {
                 lsp_flags = lsp_flags,
-                capabilities = capabilities
+                capabilities = capabilities,
             }
 
             local has_custom_config, custom_config = pcall(
@@ -111,5 +117,5 @@ return {
         -- Keybindings
         map("n", "[d", vim.diagnostic.goto_prev)
         map("n", "]d", vim.diagnostic.goto_next)
-    end
+    end,
 }
