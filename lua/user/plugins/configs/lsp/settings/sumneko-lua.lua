@@ -1,11 +1,9 @@
 local M = {}
 
 M.on_attach = function(client, bufnr)
-    -- local ns = vim.lsp.diagnostic.get_namespace(client.id)
-    -- vim.diagnostic.reset(ns, bufnr)
-    -- vim.diagnostic.disable(bufnr, ns)
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
 end
-
 
 M.settings = {
     Lua = {
@@ -13,7 +11,11 @@ M.settings = {
             version = "LuaJIT",
         },
         diagnostics = {
+            enable = true,
             globals = { "vim" },
+        },
+        format = {
+            enable = false,
         },
     },
 }
