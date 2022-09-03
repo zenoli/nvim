@@ -58,9 +58,10 @@ return {
             map("n", "<leader>F", vim.lsp.buf.format, opts)
             map("v", "<leader>F", vim.lsp.buf.range_formatting, opts)
             map("n", "<space>gd", vim.lsp.buf.type_definition, opts)
-            map("n", "gr", function() require("telescope.builtin").lsp_references() end)
-            map("n", "gd", function() require("telescope.builtin").lsp_definitions() end)
-            map( "n", "gD", function() require("telescope.builtin").lsp_definitions { jump_type = "vsplit" } end)
+            map("n", "gr", function() require("telescope.builtin").lsp_references() end, opts)
+            map("n", "gd", function() require("telescope.builtin").lsp_definitions() end, opts)
+            map("n", "<leader>sd", function () require("telescope.builtin").diagnostics() end, opts)
+            map( "n", "gD", function() require("telescope.builtin").lsp_definitions { jump_type = "vsplit" } end, opts)
         end
 
         local lsp_flags = {
