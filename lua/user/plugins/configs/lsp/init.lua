@@ -5,8 +5,8 @@ return {
         "telescope.nvim",
     },
     config = function()
-        local lspconfig = require("lspconfig")
-        local utils = require("user.utils")
+        local lspconfig = require "lspconfig"
+        local utils = require "user.utils"
         -- local servers = require "user.plugins.configs.lsp.servers"
         local servers = require("mason-lspconfig").get_installed_servers()
         local map = utils.map
@@ -43,34 +43,24 @@ return {
 
         vim.diagnostic.config(config)
 
-        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-            border = "rounded",
-        })
+        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+            vim.lsp.handlers.hover, { border = "rounded", }
+        )
 
-        vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-            border = "rounded",
-        })
+        vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+            vim.lsp.handlers.signature_help, { border = "rounded", }
+        )
 
-        -- Use an on_attach function to only map the following keys
-        -- after the language server attaches to the current buffer
         local on_attach = function(client, bufnr)
-            -- Mappings.
+            -- Mapings.
             local opts = { buffer = bufnr }
             map("n", "gi", vim.lsp.buf.implementation, opts)
             map("n", "<leader>F", vim.lsp.buf.format, opts)
-            map("v", "<leader>F", function()
-                vim.lsp.buf.range_formatting()
-            end, opts)
+            map("v", "<leader>F", vim.lsp.buf.range_formatting, opts)
             map("n", "<space>gd", vim.lsp.buf.type_definition, opts)
-            map("n", "gr", function()
-                require("telescope.builtin").lsp_references()
-            end)
-            map("n", "gd", function()
-                require("telescope.builtin").lsp_definitions()
-            end)
-            map("n", "gD", function()
-                require("telescope.builtin").lsp_definitions({ jump_type = "vsplit" })
-            end)
+            map("n", "gr", function() require("telescope.builtin").lsp_references() end)
+            map("n", "gd", function() require("telescope.builtin").lsp_definitions() end)
+            map( "n", "gD", function() require("telescope.builtin").lsp_definitions { jump_type = "vsplit" } end)
         end
 
         local lsp_flags = {
@@ -92,15 +82,11 @@ return {
                 capabilities = capabilities,
             }
 
-            local has_custom_config, custom_config = pcall(
-                require,
-                "user.plugins.configs.lsp.settings." .. utils.to_kebap_case(server)
-            )
+            local has_custom_config, custom_config =
+                pcall(require, "user.plugins.configs.lsp.settings." .. utils.to_kebap_case(server))
             if has_custom_config then
                 -- Add server specific settings
-                if custom_config.settings then
-                    opts.settings = custom_config.settings
-                end
+                if custom_config.settings then opts.settings = custom_config.settings end
                 -- Add server specific callback
                 if custom_config.on_attach then
                     opts.on_attach = function(client, bufnr)

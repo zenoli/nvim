@@ -1,6 +1,3 @@
--- local plenary = require "plenary.reload"
--- local packer = require "packer"
-
 local M = {}
 
 local function exec_if_exists(module_name, cb, silent)
@@ -15,6 +12,7 @@ end
 M.exec_if_exists = exec_if_exists
 
 function M.reload()
+
     exec_if_exists(
         "plenary.reload",
         function (m)
@@ -51,10 +49,6 @@ end
 -- to `kebap-case`.
 function M.to_kebap_case(s)
     return string.gsub(s, "_", "-")
-end
-
-function M.is_available(plugin)
-    return packer_plugins ~= nil and packer_plugins[plugin] ~= nil
 end
 
 
