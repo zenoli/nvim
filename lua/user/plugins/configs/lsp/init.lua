@@ -65,14 +65,14 @@ return {
             map("n", "gd", function () require("telescope.builtin").lsp_definitions() end)
             map("n", "gD", function () require("telescope.builtin").lsp_definitions({ jump_type = "vsplit" }) end)
 
-            -- Language specific settings
-            execute_if_exists(
-                "user.plugins.configs.lsp.settings." .. utils.to_kebap_case(client.name),
-                function (m)
-                    if (m.on_attach) then m.on_attach(client, bufnr) end
-                end,
-                true
-            )
+            -- -- Language specific settings
+            -- execute_if_exists(
+            --     "user.plugins.configs.lsp.settings." .. utils.to_kebap_case(client.name),
+            --     function (m)
+            --         if (m.on_attach) then m.on_attach(client, bufnr) end
+            --     end,
+            --     true
+            -- )
         end
 
         local lsp_flags = {

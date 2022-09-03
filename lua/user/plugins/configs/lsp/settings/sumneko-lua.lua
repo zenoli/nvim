@@ -1,8 +1,9 @@
 local M = {}
 
 M.on_attach = function (client, bufnr)
-    local ns = vim.lsp.diagnostic.get_namespace(client.id)
-    vim.diagnostic.disable(bufnr, ns)
+    -- local ns = vim.lsp.diagnostic.get_namespace(client.id)
+    -- vim.diagnostic.reset(ns, bufnr)
+    -- vim.diagnostic.disable(bufnr, ns)
 end
 
 
@@ -12,7 +13,7 @@ M.settings = {
             version = "LuaJIT",
         },
         diagnostics = {
-            globals = {},
+            globals = { "vim" },
         },
     },
 }

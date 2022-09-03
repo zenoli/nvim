@@ -23,6 +23,12 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     callback = function() vim.opt.filetype = "tmux" end
 })
 
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+    group = custom_autocommands,
+    pattern = ".luacheckrc",
+    callback = function() vim.opt.filetype = "lua" end
+})
+
 -- vim.api.nvim_create_autocmd("CursorHold", {
 --     group = custom_autocommands,
 --     pattern = "*",
