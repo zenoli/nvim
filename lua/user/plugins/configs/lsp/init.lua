@@ -11,7 +11,6 @@ return {
         -- local servers = require "user.plugins.configs.lsp.servers"
         local servers = require "mason-lspconfig".get_installed_servers()
         local map = utils.map
-        local execute_if_exists = utils.exec_if_exists
 
         local signs = {
             { name = "DiagnosticSignError", text = "" },
@@ -60,19 +59,11 @@ return {
             -- Mappings.
             local opts = { buffer = bufnr }
             map("n", "gi", vim.lsp.buf.implementation, opts)
+            map("n", "<leader>F", vim.lsp.buf.format, opts)
             map("n", "<space>gd", vim.lsp.buf.type_definition, opts)
             map("n", "gr", function () require("telescope.builtin").lsp_references() end)
             map("n", "gd", function () require("telescope.builtin").lsp_definitions() end)
             map("n", "gD", function () require("telescope.builtin").lsp_definitions({ jump_type = "vsplit" }) end)
-
-            -- -- Language specific settings
-            -- execute_if_exists(
-            --     "user.plugins.configs.lsp.settings." .. utils.to_kebap_case(client.name),
-            --     function (m)
-            --         if (m.on_attach) then m.on_attach(client, bufnr) end
-            --     end,
-            --     true
-            -- )
         end
 
         local lsp_flags = {
