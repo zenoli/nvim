@@ -9,7 +9,7 @@ return {
         tag = "0.1.0",
         cmd = "Telescope",
         module = "telescope",
-        setup = function() require "user.plugins.configs.telescope.keybindings" end,
+        setup = require("user.plugins.configs.telescope.keybindings").setup,
         config = function()
             local map = require("user.utils").map
             local actions = require "telescope.actions"
