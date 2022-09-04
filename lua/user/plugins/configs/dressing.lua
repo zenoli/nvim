@@ -28,6 +28,8 @@ return {
                 -- These are passed to nvim_open_win
                 anchor = "SW",
                 border = "rounded",
+                winhighlight = "NormalFloat:NormalNC"
+
             },
             nui = {
                 position = "50%",
@@ -40,6 +42,7 @@ return {
             builtin = {
                 windblend = 10,
                 border = "rounded",
+                winhighlight = "NormalFloat:NormalNC"
             },
         }
     end,

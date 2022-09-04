@@ -25,5 +25,9 @@ return {
 
         -- Make unstage icon non-italic
         vim.api.nvim_set_hl(0, "NeoTreeGitUnstaged", { link = "NeoTreeGitDeleted" })
+
+        -- 
+        vim.api.nvim_set_hl(0, "FloatBorder", { link = "NormalNC" })
+        vim.api.nvim_set_hl(0, "NormalFloat", { link = "NormalNC" })
     end
 }
