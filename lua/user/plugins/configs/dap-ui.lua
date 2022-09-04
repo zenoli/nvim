@@ -1,8 +1,11 @@
 return {
     "rcarriga/nvim-dap-ui",
-    requires = "mfussenegger/nvim-dap",
+    after = "nvim-dap",
+    module = "dapui",
     config = function()
-        require("dapui").setup {
+        local dap = require "dap"
+        local dapui = require "dapui"
+        dapui.setup {
             mappings = {
                 expand = "o",
                 open = "<cr>",
@@ -44,5 +47,13 @@ return {
                 max_type_length = nil, -- Can be integer or nil.
             },
         }
+
+        -- dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open() end
+        dap.listeners.before.event_terminated["dapui_config"] = function()
+            dapui.close()
+        end
+        dap.listeners.before.event_exited["dapui_config"] = function()
+            dapui.close()
+        end
     end,
 }
