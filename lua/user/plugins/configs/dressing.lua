@@ -1,11 +1,13 @@
 return {
     "stevearc/dressing.nvim",
-    config = function ()
+    after = "nvim-dap",
+    event = "UIEnter",
+    config = function()
         require("dressing").setup {
             select = {
                 enabled = true,
                 winblend = 70,
-                border = "rounded"
+                border = "rounded",
             },
             input = {
                 -- Set to false to disable the vim.ui.input implementation
@@ -15,17 +17,17 @@ return {
                 default_prompt = "Input:",
 
                 -- Can be 'left', 'right', or 'center'
-                prompt_align = "left",
+                prompt_align = "center",
 
                 -- When true, <Esc> will close the modal
-                insert_only = true,
+                insert_only = false,
 
                 -- When true, input will start in insert mode.
                 start_in_insert = true,
 
                 -- These are passed to nvim_open_win
                 anchor = "SW",
-                border = "rounded"
+                border = "rounded",
             },
             nui = {
                 position = "50%",
@@ -37,8 +39,8 @@ return {
             },
             builtin = {
                 windblend = 10,
-                border = "rounded"
-            }
+                border = "rounded",
+            },
         }
-    end
+    end,
 }

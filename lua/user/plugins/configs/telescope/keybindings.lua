@@ -4,16 +4,8 @@ return {
 
         -- Finder bindings
         map("n", "<leader>f", function() require("telescope.builtin").find_files() end)
-        map(
-            "n",
-            "<leader>sfh",
-            function() require("telescope.builtin").find_files { hidden = true } end
-        )
-        map(
-            "n",
-            "<leader>sfi",
-            function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end
-        )
+        map("n", "<leader>H", function() require("telescope.builtin").find_files { hidden = true } end)
+        map("n", "<leader>I", function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end)
         map("n", "<leader>a", function() require("telescope.builtin").live_grep() end)
         map("n", "<leader>sb", function() require("telescope.builtin").buffers() end)
         map("n", "<leader>sh", function() require("telescope.builtin").help_tags() end)

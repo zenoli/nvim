@@ -28,11 +28,21 @@ function M.dap_keybind(dap_action, key)
 end
 
 function M.set_conditional_breakpoint()
-    require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ")
+    vim.ui.input(
+        { prompt = "Breakpoint condition: " },
+        function(input)
+            require("dap").set_breakpoint(input)
+        end
+    )
 end
 
 function M.set_logpoint()
-    require("dap").set_breakpoint(nil, nil, vim.fn.input "Log point message: ")
+    vim.ui.input(
+        { prompt = "Log point message: " },
+        function(input)
+            require("dap").set_breakpoint(nil, nil, input)
+        end
+    )
 end
 
 return M
