@@ -78,5 +78,3 @@ map("s", "<", "<")
 map("n", "<leader>gg", ":Git<cr>")
 
 map("n", "<leader>C", ":ToggleDiag<cr>")
-
-require "user.plugins.configs.telescope.keybindings"

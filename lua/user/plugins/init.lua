@@ -28,19 +28,8 @@ packer.startup(function(use)
     use { "rafamadriz/friendly-snippets", opt = true }
     use { "onsails/lspkind.nvim", opt = true }
     use {
-        "kelly-lin/telescope-ag",
-        after = "telescope.nvim",
-        config = function() require("telescope").load_extension "ag" end,
-    }
-    use {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        run = "make",
-        after = "telescope.nvim",
-        config = function() require("telescope").load_extension "fzf" end,
-    }
-    use {
         "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
-        cmd = { "ToggleDiag", "ToggleDiagDefault"},
+        cmd = { "ToggleDiag", "ToggleDiagDefault" },
         key = "<leader>C",
     }
 
