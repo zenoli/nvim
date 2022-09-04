@@ -6,7 +6,7 @@ return {
         "mfussenegger/nvim-dap",
         requires = dap_virtualtext,
         module = "dap",
-        setup = function() require "user.plugins.configs.dap.keybindings" end,
+        setup = require("user.plugins.configs.dap.keybindings").setup,
         config = function()
             local dap = require "dap"
             require("user.plugins.configs.dap.debug-signs").setup()

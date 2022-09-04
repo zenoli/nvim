@@ -19,10 +19,11 @@ function M.close()
 end
 
 function M.dap_keybind(dap_action, key)
-    if require("dap").session() then
-        dap_action()
+    local dap = require "dap"
+    if dap.session() then
+        dap[dap_action]()
     else
-        vim.cmd("normal! " .. key)
+        vim.cmd([[execute "normal! ]] .. key .. [["]])
     end
 end
 
