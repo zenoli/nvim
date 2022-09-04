@@ -34,8 +34,6 @@ return {
             -- },
         }
         dap_signs = {
-            active = false,
-            on_config_done = nil,
             breakpoint = {
                 text = "",
                 texthl = "DiagnosticError",
