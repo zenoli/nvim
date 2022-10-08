@@ -7,4 +7,3 @@ require "user.options"
 require "user.autocommands"
 require "user.theme"
 require "user.abbreviations"
-

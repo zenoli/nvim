@@ -11,23 +11,16 @@ packer.startup(function(use)
     use "morhetz/gruvbox"
     use "ghifarit53/tokyonight-vim"
     use "NLKNguyen/papercolor-theme"
-    -- use { "morhetz/gruvbox", cmd = "colorscheme gruvbox" }
-    -- use { "ghifarit53/tokyonight-vim", cmd = "colorscheme tokyonight" }
-    -- use { "NLKNguyen/papercolor-theme", cmd = "colorscheme PaperColor" }
 
-    use { "vimwiki/vimwiki", cmd = { "VimwikiDiaryIndex", "VimwikiMakeDiaryNote" } }
-    use { "junegunn/gv.vim", cmd = "GV", wants = "vim-fugitive" }
     use "kana/vim-surround"
     use "tpope/vim-repeat"
     use "tpope/vim-commentary"
+
+    use { "vimwiki/vimwiki", cmd = { "VimwikiDiaryIndex", "VimwikiMakeDiaryNote" } }
+    use { "junegunn/gv.vim", cmd = "GV", wants = "vim-fugitive" }
     use { "szw/vim-maximizer", keys = "<f3>" }
     use { "j-hui/fidget.nvim", config = function() require("fidget").setup() end }
     use { "windwp/nvim-ts-autotag", after = "nvim-treesitter" }
-    use {
-        "L3MON4D3/LuaSnip",
-        config = function() require("luasnip.loaders.from_vscode").lazy_load() end,
-        opt = true,
-    }
     use { "rafamadriz/friendly-snippets", opt = true }
     use { "onsails/lspkind.nvim", opt = true }
     use {
@@ -40,6 +33,7 @@ packer.startup(function(use)
     use(plug "lspsaga")
     use(plug "neo-tree")
     -- use(plug "nvim-tree")
+    use(plug "luasnip")
     use(plug "mason")
     use(plug "winbar")
     use(plug "mason-lspconfig")
