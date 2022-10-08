@@ -11,6 +11,7 @@ packer.startup(function(use)
     use "morhetz/gruvbox"
     use "ghifarit53/tokyonight-vim"
     use "NLKNguyen/papercolor-theme"
+    use "edkolev/tmuxline.vim"
 
     use "kana/vim-surround"
     use "tpope/vim-repeat"
