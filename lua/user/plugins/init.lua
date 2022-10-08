@@ -8,9 +8,12 @@ packer.startup(function(use)
     use "nvim-lua/plenary.nvim" -- Useful lua functions used lots of plugins
 
     -- Themes
-    use { "morhetz/gruvbox", cmd = "colorscheme gruvbox" }
-    use { "ghifarit53/tokyonight-vim", cmd = "colorscheme tokyonight" }
-    use { "NLKNguyen/papercolor-theme", cmd = "colorscheme PaperColor" }
+    use "morhetz/gruvbox"
+    use "ghifarit53/tokyonight-vim"
+    use "NLKNguyen/papercolor-theme"
+    -- use { "morhetz/gruvbox", cmd = "colorscheme gruvbox" }
+    -- use { "ghifarit53/tokyonight-vim", cmd = "colorscheme tokyonight" }
+    -- use { "NLKNguyen/papercolor-theme", cmd = "colorscheme PaperColor" }
 
     use { "vimwiki/vimwiki", cmd = { "VimwikiDiaryIndex", "VimwikiMakeDiaryNote" } }
     use { "junegunn/gv.vim", cmd = "GV", wants = "vim-fugitive" }
@@ -36,7 +39,9 @@ packer.startup(function(use)
     use(plug "dressing")
     use(plug "lspsaga")
     use(plug "neo-tree")
+    -- use(plug "nvim-tree")
     use(plug "mason")
+    use(plug "winbar")
     use(plug "mason-lspconfig")
     use(plug "lsp")
     use(plug "dap")

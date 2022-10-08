@@ -13,7 +13,7 @@ local options = {
     splitbelow = true,
     splitright = true,
 
-    showtabline = 2,
+    showtabline = 1,
     laststatus = 2,
 
     termguicolors = true,
