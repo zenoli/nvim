@@ -1,7 +1,7 @@
 local packer = require "user.plugins.packer-config"
 local function plug(name) return require("user.plugins.configs." .. name) end
 
--- Install your plugins here
+-- Instal your plugins here
 packer.startup(function(use)
     use "lewis6991/impatient.nvim"
     use "wbthomason/packer.nvim" -- Have packer manage itself
@@ -12,6 +12,7 @@ packer.startup(function(use)
     use "ghifarit53/tokyonight-vim"
     use "NLKNguyen/papercolor-theme"
     use "edkolev/tmuxline.vim"
+    use { 'katawful/kat.nvim', tag = "1.0" }
 
     use "kana/vim-surround"
     use "tpope/vim-repeat"

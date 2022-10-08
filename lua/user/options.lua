@@ -14,7 +14,7 @@ local options = {
     splitright = true,
 
     showtabline = 1,
-    laststatus = 2,
+    laststatus = 3,
 
     termguicolors = true,
 

@@ -7,8 +7,11 @@ return {
                     statusline = { "neo-tree", "calendar" },
                     winbar = {},
                 },
-                ignore_focus = { "neo-tree", "calendar" }
-            }
+                ignore_focus = { "neo-tree", "calendar" },
+            },
+            sections = {
+                lualine_b = { "branch" },
+            },
         }
-    end
+    end,
 }
