@@ -12,7 +12,7 @@ M.settings = {
         },
         diagnostics = {
             enable = true,
-            globals = { "vim" },
+            globals = { "vim", "awesome", "tag", "client", "screen" }
         },
         format = {
             enable = false,

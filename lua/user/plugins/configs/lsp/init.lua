@@ -43,25 +43,27 @@ return {
 
         vim.diagnostic.config(config)
 
-        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-            vim.lsp.handlers.hover, { border = "rounded", }
-        )
+        vim.lsp.handlers["textDocument/hover"] =
+            vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 
-        vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-            vim.lsp.handlers.signature_help, { border = "rounded", }
-        )
+        vim.lsp.handlers["textDocument/signatureHelp"] =
+            vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
         local on_attach = function(client, bufnr)
             -- Mapings.
             local opts = { buffer = bufnr }
             map("n", "gi", vim.lsp.buf.implementation, opts)
             map("n", "<leader>F", vim.lsp.buf.format, opts)
-            map("v", "<leader>F", vim.lsp.buf.range_formatting, opts)
             map("n", "<space>gd", vim.lsp.buf.type_definition, opts)
-            map("n", "<leader>sd", function () require("telescope.builtin").diagnostics() end, opts)
+            map("n", "<leader>sd", function() require("telescope.builtin").diagnostics() end, opts)
             map("n", "gr", function() require("telescope.builtin").lsp_references() end, opts)
             map("n", "gd", function() require("telescope.builtin").lsp_definitions() end, opts)
-            map( "n", "gD", function() require("telescope.builtin").lsp_definitions { jump_type = "vsplit" } end, opts)
+            map(
+                "n",
+                "gD",
+                function() require("telescope.builtin").lsp_definitions { jump_type = "vsplit" } end,
+                opts
+            )
         end
 
         local lsp_flags = {

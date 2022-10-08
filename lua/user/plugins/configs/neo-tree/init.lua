@@ -65,9 +65,11 @@ return {
             window = {
                 position = "left",
                 width = 30,
+                same_level = false,
                 mapping_options = {
                     noremap = true,
                     nowait = true,
+                    -- same_level = true
                 },
                 mappings = {
                     ["o"] = "open_with_window_picker",
@@ -78,6 +80,14 @@ return {
                     ["q"] = "clear_filter",
                     ["/"] = "noop", -- "noop" removes a default mapping
                     ["g/"] = "fuzzy_finder",
+                    ["a"] = {
+                        "add",
+                        config = { same_level = true }
+                    },
+                    ["A"] = {
+                        "add_directory",
+                        config = { same_level = true }
+                    },
                 },
             },
             filesystem = {
