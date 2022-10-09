@@ -12,11 +12,17 @@ end
 M.exec_if_exists = exec_if_exists
 
 function M.reload()
-
+    -- vim.cmd("LuaCacheClear")
     exec_if_exists(
         "plenary.reload",
         function (m)
-            m.reload_module "user"
+            -- m.reload_module "user"
+            m.reload_module "user.keybindings"
+            m.reload_module "user.plugins"
+            m.reload_module "user.option"
+            m.reload_module "user.autocommands"
+            m.reload_module "user.abbreviations"
+            m.reload_module "user.utils"
         end
     )
     dofile(vim.env.MYVIMRC)
@@ -28,9 +34,8 @@ function M.reload()
             m.compile()
         end
     )
-    vim.notify("Reloading Neovim config...", vim.log.levels.INFO, { render = "minimal" })
+    vim.notify("Reloading nvim config...", vim.log.levels.INFO, { render = "minimal" })
     vim.cmd("nohlsearch")
-    vim.cmd("LuaCacheClear")
 end
 
 function M.map(mode, lhs, rhs, opts)

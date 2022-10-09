@@ -8,7 +8,7 @@ return {
                 null_ls.builtins.formatting.stylua,
 
                 -- Javascript
-                null_ls.builtins.diagnostics.eslint,
+                null_ls.builtins.diagnostics.eslint_d,
 
                 -- Shell/Bash
                 null_ls.builtins.code_actions.shellcheck,

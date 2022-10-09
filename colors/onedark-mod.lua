@@ -26,4 +26,3 @@ vim.api.nvim_set_hl(0, "NeoTreeGitUnstaged", { link = "NeoTreeGitDeleted" })
 -- Floating windows
 vim.api.nvim_set_hl(0, "FloatBorder", { link = "NormalNC" })
 vim.api.nvim_set_hl(0, "NormalFloat", { link = "NormalNC" })
-
