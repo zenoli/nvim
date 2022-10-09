@@ -12,7 +12,7 @@ packer.startup(function(use)
     use "ghifarit53/tokyonight-vim"
     use "NLKNguyen/papercolor-theme"
     use "edkolev/tmuxline.vim"
-    use { 'katawful/kat.nvim', tag = "1.0" }
+    use { "katawful/kat.nvim", tag = "1.0" }
 
     use "kana/vim-surround"
     use "tpope/vim-repeat"
@@ -21,7 +21,6 @@ packer.startup(function(use)
     use { "vimwiki/vimwiki", cmd = { "VimwikiDiaryIndex", "VimwikiMakeDiaryNote" } }
     use { "junegunn/gv.vim", cmd = "GV", wants = "vim-fugitive" }
     use { "szw/vim-maximizer", keys = "<f3>" }
-    use { "j-hui/fidget.nvim", config = function() require("fidget").setup() end }
     use { "windwp/nvim-ts-autotag", after = "nvim-treesitter" }
     use { "rafamadriz/friendly-snippets", opt = true }
     use { "onsails/lspkind.nvim", opt = true }
@@ -37,6 +36,8 @@ packer.startup(function(use)
     -- use(plug "nvim-tree")
     use(plug "luasnip")
     use(plug "mason")
+    use(plug "refactoring")
+    use(plug "fidget")
     use(plug "winbar")
     use(plug "mason-lspconfig")
     use(plug "lsp")

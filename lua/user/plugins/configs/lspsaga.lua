@@ -32,7 +32,8 @@ return {
 
         -- Code action
         map("n", "<leader>ca", "<cmd>Lspsaga code_action<cr>")
-        map("v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<cr>")
+        -- map("v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<cr>")
+        map("v", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>")
         map("n", "gp", "<cmd>Lspsaga preview_definition<cr>")
         -- Outline
         map("n","<leader>o", "<cmd>LSoutlineToggle<cr>")

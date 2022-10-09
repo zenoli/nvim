@@ -1,5 +1,6 @@
 return {
     "jose-elias-alvarez/null-ls.nvim",
+    wants = "refactoring.nvim",
     config = function()
         local null_ls = require "null-ls"
         require("null-ls").setup {
@@ -14,6 +15,12 @@ return {
                 null_ls.builtins.code_actions.shellcheck,
                 null_ls.builtins.formatting.shfmt,
                 null_ls.builtins.hover.printenv,
+
+                -- Git
+                null_ls.builtins.code_actions.gitsigns,
+
+                -- Misc
+                null_ls.builtins.code_actions.refactoring
             },
         }
     end,
