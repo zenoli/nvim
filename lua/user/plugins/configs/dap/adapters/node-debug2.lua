@@ -1,17 +1,16 @@
 local M = {}
+local dap_utils = require "user.plugins.configs.dap.utils"
+local NODE_DEBUG2_ADAPTER_BIN = dap_utils.MASON_BIN_PATH .. "/node-debug2-adapter"
 
 function M.setup()
     local dap = require "dap"
     dap.adapters.node2 = {
         type = "executable",
-        command = "node",
-        args = {
-            vim.fn.stdpath "data" .. "/mason/packages/node-debug2-adapter/out/src/nodeDebug.js",
-        },
+        command = NODE_DEBUG2_ADAPTER_BIN,
     }
     dap.configurations.javascript = {
         {
-            name = "Launch",
+            name = "Launch Node2 debugger",
             type = "node2",
             request = "launch",
             program = "${file}",
@@ -23,7 +22,7 @@ function M.setup()
         -- {
         --     -- For this to work you need to make sure the node process is started
         --     -- with the `--inspect` flag.
-        --     name = "Attach to process",
+        --     name = "Attach Node2 debugger to process",
         --     type = "node2",
         --     request = "attach",
         --     processId = require("dap.utils").pick_process,

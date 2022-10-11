@@ -21,9 +21,10 @@ return {
             },
 
             exclude_filetype = {
-                "help",
+                -- "help",
                 "startify",
                 "dashboard",
+                -- "dap-repl",
                 "packer",
                 "neogitstatus",
                 "NvimTree",

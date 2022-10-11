@@ -1,6 +1,6 @@
 return {
     "theHamsta/nvim-dap-virtual-text",
-    opt = true,
+    after = "nvim-dap",
     config = function()
         require("nvim-dap-virtual-text").setup()
     end
