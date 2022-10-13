@@ -10,7 +10,7 @@ return {
             function()
                 require("telescope.builtin").find_files {
                     hidden = true,
-                    prompt_file = "Hidden Files",
+                    prompt_title = "Hidden Files",
                 }
             end
         )
