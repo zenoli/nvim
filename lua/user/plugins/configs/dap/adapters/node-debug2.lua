@@ -18,6 +18,10 @@ function M.setup()
             sourceMaps = true,
             protocol = "inspector",
             console = "integratedTerminal",
+            skipFiles = {
+                "${workspaceFolder}/node_modules/**/*.js",
+                "${workspaceFolder}/lib/**/*.js",
+            },
         },
         -- {
         --     -- For this to work you need to make sure the node process is started
