@@ -19,6 +19,7 @@ function M.setup()
             protocol = "inspector",
             console = "integratedTerminal",
             skipFiles = {
+                "<node_internals>/**/*.js",
                 "${workspaceFolder}/node_modules/**/*.js",
                 "${workspaceFolder}/lib/**/*.js",
             },
