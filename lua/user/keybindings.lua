@@ -75,6 +75,4 @@ map("v", "<", "<gv")
 map("s", ">", ">")
 map("s", "<", "<")
 
-map("n", "<leader>gg", ":Git<cr>")
-
 map("n", "<leader>C", ":ToggleDiag<cr>")
