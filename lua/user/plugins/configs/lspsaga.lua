@@ -43,7 +43,7 @@ return {
         map("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<cr>")
         map("n", "<leader>ld", "<cmd>Lspsaga show_line_diagnostics<cr>")
 
-        map("n", "<leader>lf", "<cmd>Lspsaga lsp_finder<cr>")
+        map("n", "gR", "<cmd>Lspsaga lsp_finder<cr>")
 
     end,
 }
