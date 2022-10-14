@@ -1,9 +1,37 @@
 return {
     "glepnir/lspsaga.nvim",
     branch = "main",
+    module = "lspsaga",
+    setup = function()
+        local map = function(mode, lhs, rhs, opts)
+            local function rhs_cb()
+                require "lspsaga"
+                vim.cmd(rhs)
+            end
+            require("user.utils").map(mode, lhs, rhs_cb, opts)
+        end
+
+        -- Rename
+        map("n", "<leader>rn", "Lspsaga rename")
+
+        -- Code action
+        map("n", "<leader>ca", "Lspsaga code_action")
+        map("v", "<leader>ca", "lua vim.lsp.buf.code_action()")
+        map("n", "gp", "Lspsaga preview_definition")
+        -- Outline
+        map("n","<leader>o", "LSoutlineToggle")
+
+        -- Hover Doc
+        map("n", "K", "Lspsaga hover_doc")
+        map("n", "<leader>cd", "Lspsaga show_cursor_diagnostics")
+        map("n", "<leader>ld", "Lspsaga show_line_diagnostics")
+
+        map("n", "gR", "Lspsaga lsp_finder")
+
+    end,
     config = function()
-        local map = require "user.utils".map
-        local saga = require"lspsaga"
+        -- local map = require "user.utils".map
+        local saga = require "lspsaga"
 
         saga.init_lsp_saga {
             border_style = "rounded",
@@ -26,24 +54,5 @@ return {
                 scroll_up = "<c-u>", -- quit can be a table
             },
         }
-
-        -- Rename
-        map("n", "<leader>rn", "<cmd>Lspsaga rename<cr>")
-
-        -- Code action
-        map("n", "<leader>ca", "<cmd>Lspsaga code_action<cr>")
-        -- map("v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<cr>")
-        map("v", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>")
-        map("n", "gp", "<cmd>Lspsaga preview_definition<cr>")
-        -- Outline
-        map("n","<leader>o", "<cmd>LSoutlineToggle<cr>")
-
-        -- Hover Doc
-        map("n", "K", "<cmd>Lspsaga hover_doc<cr>")
-        map("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<cr>")
-        map("n", "<leader>ld", "<cmd>Lspsaga show_line_diagnostics<cr>")
-
-        map("n", "gR", "<cmd>Lspsaga lsp_finder<cr>")
-
     end,
 }
