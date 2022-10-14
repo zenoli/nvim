@@ -38,10 +38,21 @@ function M.reload()
     vim.cmd("nohlsearch")
 end
 
-function M.map(mode, lhs, rhs, opts)
+function M.map(mode, lhs, rhs, opts, dependency)
     opts = opts or {}
     local default_opts = { silent = true }
-    vim.keymap.set(mode, lhs, rhs, vim.tbl_extend("force", default_opts, opts))
+
+    local rhs_cb
+    if dependency then
+        rhs_cb = function()
+            require(dependency)
+            vim.cmd(rhs)
+        end
+    else
+        rhs_cb = rhs
+    end
+
+    vim.keymap.set(mode, lhs, rhs_cb, vim.tbl_extend("force", default_opts, opts))
 end
 
 -- Transforms a string s, given in `kebap-case` and transforms it 

@@ -4,11 +4,7 @@ return {
     module = "lspsaga",
     setup = function()
         local map = function(mode, lhs, rhs, opts)
-            local function rhs_cb()
-                require "lspsaga"
-                vim.cmd(rhs)
-            end
-            require("user.utils").map(mode, lhs, rhs_cb, opts)
+            require("user.utils").map(mode, lhs, rhs, opts, "lspsaga")
         end
 
         -- Rename

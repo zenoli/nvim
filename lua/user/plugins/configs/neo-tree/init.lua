@@ -7,9 +7,14 @@ return {
         "MunifTanjim/nui.nvim",
         -- NOTE: The fuzzy search only works reliably when 'fd' is installed.
     },
-    -- cmd = "Neotree toggle",
-    keys = "<leader>e",
     wants = "nvim-window-picker",
+    setup = function()
+        local map = function(mode, lhs, rhs,opts)
+            require("user.utils").map(mode, lhs, rhs, opts, "neo-tree")
+        end
+        map("n", "<leader>e", "Neotree toggle")
+        map("n", "<localleader><localleader>", "Neotree reveal")
+    end,
     config = function ()
         -- Unless you are still migrating, remove the deprecated commands from v1.x
         vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
@@ -109,9 +114,5 @@ return {
             },
             event_handlers = event_handlers
         }
-
-        local map = require "user.utils".map
-        map("n", "<leader>e", ":Neotree toggle<cr>")
-        map("n", "<localleader><localleader>", ":Neotree reveal<cr>")
     end
 }
