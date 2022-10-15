@@ -49,23 +49,7 @@ return {
         vim.lsp.handlers["textDocument/signatureHelp"] =
             vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
-        local on_attach = function(client, bufnr)
-            -- Mapings.
-            local opts = { buffer = bufnr }
-            map("n", "gi", vim.lsp.buf.implementation, opts)
-            map("n", "<leader>F", vim.lsp.buf.format, opts)
-            map("n", "<space>gd", vim.lsp.buf.type_definition, opts)
-            map("n", "<leader>sd", function() require("telescope.builtin").diagnostics() end, opts)
-            map("n", "gr", function() require("telescope.builtin").lsp_references() end, opts)
-            map("n", "gd", function() require("telescope.builtin").lsp_definitions() end, opts)
-            map(
-                "n",
-                "gD",
-                function() require("telescope.builtin").lsp_definitions { jump_type = "vsplit" } end,
-                opts
-            )
-        end
-
+        local on_attach = require("user.plugins.configs.lsp.keybindings").setup
         local lsp_flags = {
             -- This is the default in Nvim 0.7+
             debounce_text_changes = 150,
@@ -74,33 +58,37 @@ return {
         local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         if status_ok then
-            capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+            capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
         else
             vim.notify("cmp_nvim_lsp is not installed...", vim.log.levels.WARN)
         end
 
         for _, server in pairs(servers) do
-            local opts = {
-                lsp_flags = lsp_flags,
-                capabilities = capabilities,
-            }
+            if server ~= "jdtls" then
+                local opts = {
+                    lsp_flags = lsp_flags,
+                    capabilities = capabilities,
+                }
 
-            local has_custom_config, custom_config =
-                pcall(require, "user.plugins.configs.lsp.settings." .. utils.to_kebap_case(server))
-            if has_custom_config then
-                -- Add server specific settings
-                if custom_config.settings then opts.settings = custom_config.settings end
-                -- Add server specific callback
-                if custom_config.on_attach then
-                    opts.on_attach = function(client, bufnr)
-                        on_attach(client, bufnr)
-                        custom_config.on_attach(client, bufnr)
+                local has_custom_config, custom_config = pcall(
+                    require,
+                    "user.plugins.configs.lsp.settings." .. utils.to_kebap_case(server)
+                )
+                if has_custom_config then
+                    -- Add server specific settings
+                    if custom_config.settings then opts.settings = custom_config.settings end
+                    -- Add server specific callback
+                    if custom_config.on_attach then
+                        opts.on_attach = function(client, bufnr)
+                            on_attach(client, bufnr)
+                            custom_config.on_attach(client, bufnr)
+                        end
                     end
+                else
+                    opts.on_attach = on_attach
                 end
-            else
-                opts.on_attach = on_attach
+                lspconfig[server].setup(opts)
             end
-            lspconfig[server].setup(opts)
         end
 
         -- Keybindings

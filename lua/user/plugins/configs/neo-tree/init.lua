@@ -8,26 +8,27 @@ return {
         -- NOTE: The fuzzy search only works reliably when 'fd' is installed.
     },
     wants = "nvim-window-picker",
+    module = "neo-tree",
     setup = function()
-        local map = function(mode, lhs, rhs,opts)
+        local map = function(mode, lhs, rhs, opts)
             require("user.utils").map(mode, lhs, rhs, opts, "neo-tree")
         end
         map("n", "<leader>e", "Neotree toggle")
         map("n", "<localleader><localleader>", "Neotree reveal")
     end,
-    config = function ()
+    config = function()
         -- Unless you are still migrating, remove the deprecated commands from v1.x
-        vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+        vim.cmd [[ let g:neo_tree_remove_legacy_commands = 1 ]]
 
         local navigation = require "user.plugins.configs.neo-tree.navigation"
         local event_handlers = require "user.plugins.configs.neo-tree.event_handlers"
 
         local clipboard_icons = {
             cut = "",
-            copy = ""
+            copy = "",
         }
 
-        require "neo-tree".setup {
+        require("neo-tree").setup {
             close_if_last_window = true,
             enable_git_status = true,
             enable_diagnostics = false,
@@ -39,7 +40,7 @@ return {
                 },
 
                 container = {
-                    enable_character_fade = true
+                    enable_character_fade = true,
                 },
                 icon = {
                     folder_closed = "",
@@ -54,16 +55,16 @@ return {
                 git_status = {
                     symbols = {
                         -- Change type
-                        added     = "", -- or "✚"
-                        modified  = "", -- or ""
-                        deleted   = "✖",-- this can only be used in the git_status source
-                        renamed   = "",-- this can only be used in the git_status source
+                        added = "", -- or "✚"
+                        modified = "", -- or ""
+                        deleted = "✖", -- this can only be used in the git_status source
+                        renamed = "", -- this can only be used in the git_status source
                         -- Status type
                         untracked = "",
-                        ignored   = "",
-                        unstaged  = "",
-                        staged    = "",
-                        conflict  = "",
+                        ignored = "",
+                        unstaged = "",
+                        staged = "",
+                        conflict = "",
                     },
                 },
             },
@@ -87,11 +88,11 @@ return {
                     ["g/"] = "fuzzy_finder",
                     ["a"] = {
                         "add",
-                        config = { same_level = true }
+                        config = { same_level = true },
                     },
                     ["A"] = {
                         "add_directory",
-                        config = { same_level = true }
+                        config = { same_level = true },
                     },
                 },
             },
@@ -99,20 +100,19 @@ return {
                 follow_current_file = false,
                 components = {
                     clipboard = function(config, node, state)
-                        local highlights = require("neo-tree.ui.highlights")
+                        local highlights = require "neo-tree.ui.highlights"
                         local clipboard = state.clipboard or {}
                         local clipboard_state = clipboard[node:get_id()]
-                        if not clipboard_state then
-                            return {}
-                        end
+                        if not clipboard_state then return {} end
                         return {
-                            text = clipboard_icons[clipboard_state.action] or clipboard_state.action,
+                            text = clipboard_icons[clipboard_state.action]
+                                or clipboard_state.action,
                             highlight = config.highlight or highlights.DIM_TEXT,
                         }
-                    end
-                }
+                    end,
+                },
             },
-            event_handlers = event_handlers
+            event_handlers = event_handlers,
         }
-    end
+    end,
 }

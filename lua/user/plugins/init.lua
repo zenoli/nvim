@@ -6,6 +6,7 @@ packer.startup(function(use)
     use "lewis6991/impatient.nvim"
     use "wbthomason/packer.nvim" -- Have packer manage itself
     use "nvim-lua/plenary.nvim" -- Useful lua functions used lots of plugins
+    use "mfussenegger/nvim-jdtls"
 
     -- Themes
     use "morhetz/gruvbox"
@@ -35,12 +36,12 @@ packer.startup(function(use)
     use(plug "neo-tree")
     -- use(plug "nvim-tree")
     use(plug "luasnip")
-    use(plug "mason")
     use(plug "refactoring")
     -- use(plug "lf")
     -- use(plug "toggleterm")
     use(plug "fidget")
     use(plug "winbar")
+    use(plug "mason")
     use(plug "mason-lspconfig")
     use(plug "lsp")
     use(plug "dap")

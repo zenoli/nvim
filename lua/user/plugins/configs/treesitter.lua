@@ -16,6 +16,7 @@ return {
             ensure_installed = {
                 "lua",
                 "python",
+                "java",
                 "typescript",
                 "javascript",
                 "svelte",
