@@ -1,6 +1,9 @@
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
+local HOME = os.getenv('HOME')
+local JDTLS_DIR = HOME .. "/.local/share/nvim/mason/packages/jdtls"
+local JAVA_17_BIN = "/usr/lib/jvm/java-17-openjdk-amd64/bin/java"
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-local workspace_dir = "/home/olivier/java_workspace_root/" .. project_name
+local workspace_dir = HOME .. "/java_workspace_root/" .. project_name
 
 local config = {
     -- The command that starts the language server
@@ -8,9 +11,7 @@ local config = {
     cmd = {
 
         -- 💀
-        "/usr/lib/jvm/java-17-openjdk-amd64/bin/java", -- or '/path/to/java17_or_newer/bin/java'
-        -- depends on if `java` is in your $PATH env variable and if it points to the right version.
-
+        JAVA_17_BIN,
         "-Declipse.application=org.eclipse.jdt.ls.core.id1",
         "-Dosgi.bundles.defaultStartLevel=4",
         "-Declipse.product=org.eclipse.jdt.ls.core.product",
@@ -22,23 +23,10 @@ local config = {
         "java.base/java.util=ALL-UNNAMED",
         "--add-opens",
         "java.base/java.lang=ALL-UNNAMED",
-
-        -- 💀
         "-jar",
-        "/home/olivier/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
-        -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
-        -- Must point to the                                                     Change this to
-        -- eclipse.jdt.ls installation                                           the actual version
-
-        -- 💀
+        JDTLS_DIR .. "/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
         "-configuration",
-        "/home/olivier/.local/share/nvim/mason/packages/jdtls/config_linux",
-        -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
-        -- Must point to the                      Change to one of `linux`, `win` or `mac`
-        -- eclipse.jdt.ls installation            Depending on your system.
-
-        -- 💀
-        -- See `data directory configuration` section in the README
+        JDTLS_DIR .. "/config_linux",
         "-data",
         workspace_dir,
     },
