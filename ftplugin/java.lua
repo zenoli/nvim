@@ -24,7 +24,6 @@ local config = {
         "--add-opens",
         "java.base/java.lang=ALL-UNNAMED",
         "-jar",
-        -- JDTLS_DIR .. "/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
         vim.fn.glob(JDTLS_DIR .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
         "-configuration",
         JDTLS_DIR .. "/config_linux",
