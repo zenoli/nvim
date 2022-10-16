@@ -1,9 +1,10 @@
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
-local HOME = os.getenv('HOME')
+local HOME = os.getenv "HOME"
+local XDG_DATA_HOME = os.getenv "XDG_DATA_HOME"
 local JDTLS_DIR = HOME .. "/.local/share/nvim/mason/packages/jdtls"
 local JAVA_17_BIN = "/usr/lib/jvm/java-17-openjdk-amd64/bin/java"
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-local workspace_dir = HOME .. "/java_workspace_root/" .. project_name
+local workspace_dir = XDG_DATA_HOME .. "/java_workspace_root/" .. project_name
 
 local config = {
     -- The command that starts the language server
@@ -48,15 +49,15 @@ local config = {
                 runtimes = {
                     {
                         name = "JavaSE-1.8",
-                        path = "/usr/lib/jvm/java-8-openjdk-amd64/"
+                        path = "/usr/lib/jvm/java-8-openjdk-amd64/",
                     },
                     {
                         name = "JavaSE-11",
-                        path = "/usr/lib/jvm/java-11-openjdk-amd64/"
+                        path = "/usr/lib/jvm/java-11-openjdk-amd64/",
                     },
                     {
                         name = "JavaSE-17",
-                        path = "/usr/lib/jvm/java-17-openjdk-amd64/"
+                        path = "/usr/lib/jvm/java-17-openjdk-amd64/",
                     },
                 },
             },
