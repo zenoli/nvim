@@ -1,7 +1,7 @@
 local M = {}
-local dap_utils = require "user.plugins.configs.dap.utils"
-local BASH_DEBUG_ADAPTER_BIN = dap_utils.MASON_BIN_PATH .. "/bash-debug-adapter"
-local BASHDB_DIR = dap_utils.MASON_PACKAGE_PATH .. "/bash-debug-adapter/extension/bashdb_dir"
+local mason_utils = require "user.plugins.configs.mason.utils"
+local BASH_DEBUG_ADAPTER_BIN = mason_utils.MASON_BIN_PATH .. "/bash-debug-adapter"
+local BASHDB_DIR = mason_utils.MASON_PACKAGE_PATH .. "/bash-debug-adapter/extension/bashdb_dir"
 
 function M.setup()
     local dap = require "dap"

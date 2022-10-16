@@ -1,6 +1,6 @@
 local M = {}
-local dap_utils = require "user.plugins.configs.dap.utils"
-local NODE_DEBUG2_ADAPTER_BIN = dap_utils.MASON_BIN_PATH .. "/node-debug2-adapter"
+local mason_utils = require "user.plugins.configs.mason.utils"
+local NODE_DEBUG2_ADAPTER_BIN = mason_utils.MASON_BIN_PATH .. "/node-debug2-adapter"
 
 function M.setup()
     local dap = require "dap"

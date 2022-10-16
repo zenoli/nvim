@@ -13,29 +13,23 @@ M.exec_if_exists = exec_if_exists
 
 function M.reload()
     -- vim.cmd("LuaCacheClear")
-    exec_if_exists(
-        "plenary.reload",
-        function (m)
-            -- m.reload_module "user"
-            m.reload_module "user.keybindings"
-            m.reload_module "user.plugins"
-            m.reload_module "user.option"
-            m.reload_module "user.autocommands"
-            m.reload_module "user.abbreviations"
-            m.reload_module "user.utils"
-        end
-    )
+    exec_if_exists("plenary.reload", function(m)
+        -- m.reload_module "user"
+        m.reload_module "user.keybindings"
+        m.reload_module "user.plugins"
+        m.reload_module "user.option"
+        m.reload_module "user.autocommands"
+        m.reload_module "user.abbreviations"
+        m.reload_module "user.utils"
+    end)
     dofile(vim.env.MYVIMRC)
 
-    exec_if_exists(
-        "packer",
-        function (m)
-            m.install()
-            m.compile()
-        end
-    )
+    exec_if_exists("packer", function(m)
+        m.install()
+        m.compile()
+    end)
     vim.notify("Reloading nvim config...", vim.log.levels.INFO, { render = "minimal" })
-    vim.cmd("nohlsearch")
+    vim.cmd "nohlsearch"
 end
 
 function M.map(mode, lhs, rhs, opts, dependency)
@@ -55,17 +49,17 @@ function M.map(mode, lhs, rhs, opts, dependency)
     vim.keymap.set(mode, lhs, rhs_cb, vim.tbl_extend("force", default_opts, opts))
 end
 
--- Transforms a string s, given in `kebap-case` and transforms it 
+-- Transforms a string s, given in `kebap-case` and transforms it
 -- to `snake_case`.
-function M.to_snake_case(s)
-    return string.gsub(s, "-", "_")
-end
+function M.to_snake_case(s) return string.gsub(s, "-", "_") end
 
--- Transforms a string s, given in `snake_case` and transforms it 
+-- Transforms a string s, given in `snake_case` and transforms it
 -- to `kebap-case`.
-function M.to_kebap_case(s)
-    return string.gsub(s, "_", "-")
-end
+function M.to_kebap_case(s) return string.gsub(s, "_", "-") end
 
+M.paths = {
+    MASON_BIN_PATH = vim.fn.stdpath "data" .. "/mason/bin",
+    MASON_PACKAGE_PATH = vim.fn.stdpath "data" .. "/mason/packages",
+}
 
 return M
