@@ -8,7 +8,6 @@ return {
         map("n", "<leader>L", function() utils.set_logpoint() end)
         map("n", "<leader>dd", function() utils.continue() end)
         map("n", "<leader>dq", function() utils.close() end)
-        map("n", "<leader>dc", function() require("dap").run_to_cursor() end)
         map("n", "<leader>dr", function() require("dap").repl.toggle() end)
         map("n", "[s", function() require("dap").up() end)
         map("n", "]s", function() require("dap").down() end)
