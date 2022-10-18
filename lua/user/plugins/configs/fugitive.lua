@@ -8,7 +8,7 @@ return {
         "<leader>gt",
         "<leader>g<leader>",
     },
-    cmd = "Git",
+    cmd = { "Git","GBrowse" },
     setup = function()
         local map = require("user.utils").map
         map("n", "<leader>gg", ":Git<cr>")
