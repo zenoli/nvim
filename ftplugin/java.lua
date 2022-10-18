@@ -3,6 +3,7 @@ local XDG_DATA_HOME = os.getenv "XDG_DATA_HOME"
 local mason_utils = require "user.plugins.configs.mason.utils"
 local JDTLS_DIR = mason_utils.MASON_PACKAGE_PATH .. "/jdtls"
 local JAVA_DEBUG_DIR = mason_utils.MASON_PACKAGE_PATH .. "/java-debug-adapter"
+local JAVA_TEST_DIR = mason_utils.MASON_PACKAGE_PATH .. "/java-test"
 local JAVA_17_BIN = "/usr/lib/jvm/java-17-openjdk-amd64/bin/java"
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = XDG_DATA_HOME .. "/java_workspace_root/" .. project_name
@@ -65,6 +66,15 @@ local config = {
         require("user.plugins.configs.lsp.keybindings").setup(client, bufnr)
         require("jdtls").setup_dap { hotcodereplace = "auto" }
         require("jdtls.dap").setup_dap_main_class_configs()
+
+        local dapui = require "dapui"
+        local map = require("user.utils").map
+        local dap = require "dap"
+        dap.listeners.after.event_stopped["dapui_config"] = function() dapui.open() end
+
+        -- keybindings
+        map("n", "<leader>dc", function() require("jdtls").test_class() end)
+        map("n", "<leader>dt", function() require("jdtls").test_nearest_method() end)
     end,
 
     -- Language server `initializationOptions`
@@ -78,12 +88,18 @@ local config = {
         -- bundles = {
         --     "/home/olivier/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-0.41.0.jar"
         -- },
-        bundles = vim.split(
-            vim.fn.glob(JAVA_DEBUG_DIR .. "/extension/server/com.microsoft.java.debug.plugin-*.jar"),
-            "\n"
+        bundles = vim.list_extend(
+            vim.split(
+                vim.fn.glob(
+                    JAVA_DEBUG_DIR .. "/extension/server/com.microsoft.java.debug.plugin-*.jar"
+                ),
+                "\n"
+            ),
+            vim.split(vim.fn.glob(JAVA_TEST_DIR .. "/extension/server/*.jar"), "\n")
         ),
     },
 }
+
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
 require("jdtls").start_or_attach(config)
