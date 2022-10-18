@@ -11,6 +11,7 @@ packer.startup(function(use)
     -- Themes
     use "morhetz/gruvbox"
     use "ghifarit53/tokyonight-vim"
+    use "folke/tokyonight.nvim"
     use "NLKNguyen/papercolor-theme"
     use "edkolev/tmuxline.vim"
     use { "katawful/kat.nvim", tag = "1.0" }
@@ -20,7 +21,7 @@ packer.startup(function(use)
     use "tpope/vim-commentary"
 
     use { "vimwiki/vimwiki", cmd = { "VimwikiDiaryIndex", "VimwikiMakeDiaryNote" } }
-    use { "junegunn/gv.vim", cmd = "GV"  }
+    use { "junegunn/gv.vim", cmd = "GV" }
     use { "tpope/vim-rhubarb", cmd = "Gbrowse", after = "vim-fugitive" }
     use { "szw/vim-maximizer", keys = "<f3>" }
     use { "windwp/nvim-ts-autotag", after = "nvim-treesitter" }
