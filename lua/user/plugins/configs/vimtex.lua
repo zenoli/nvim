@@ -1,6 +1,7 @@
 return {
     "lervag/vimtex",
-    ft = { "tex", "latex", "plaintex", "bib" },
+    -- Note: This enables lazy-loading but disables zathura inverse-search.
+    -- ft = { "tex", "latex", "plaintex", "bib" },
     config = function()
         vim.cmd [[
         let g:xwindow_id = system("xdotool getactivewindow")
