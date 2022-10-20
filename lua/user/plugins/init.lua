@@ -65,7 +65,7 @@ packer.startup(function(use)
     use(plug "neodim")
     use(plug "vim-svelte")
     use(plug "autopairs")
-    use(plug "vimtex")
+    -- use(plug "vimtex")
     use(plug "nvim-window-picker")
 
     -- Automatically set up your configuration after cloning packer.nvim

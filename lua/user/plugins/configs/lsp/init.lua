@@ -4,6 +4,7 @@ return {
         "mason-lspconfig.nvim",
         "telescope.nvim",
     },
+    requires = require "user.plugins.configs.lsp.settings.texlab.texlabconfig",
     config = function()
         local lspconfig = require "lspconfig"
         local utils = require "user.utils"
@@ -83,6 +84,8 @@ return {
                             on_attach(client, bufnr)
                             custom_config.on_attach(client, bufnr)
                         end
+                    else
+                        opts.on_attach = on_attach
                     end
                 else
                     opts.on_attach = on_attach
