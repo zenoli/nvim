@@ -13,34 +13,31 @@ return {
     wants = { "LuaSnip", "friendly-snippets", "lspkind.nvim" },
     event = "InsertEnter",
     config = function()
-
         require("luasnip.loaders.from_vscode").lazy_load()
         local cmp = require "cmp"
         local luasnip = require "luasnip"
 
         luasnip.setup {
             history = true,
-            enable_autosnippets = true
+            enable_autosnippets = true,
         }
-
 
         cmp.setup {
             snippet = {
-                expand = function(args)
-                    luasnip.lsp_expand(args.body)
-                end,
+                expand = function(args) luasnip.lsp_expand(args.body) end,
             },
             window = {
                 completion = cmp.config.window.bordered(),
                 documentation = cmp.config.window.bordered(),
             },
-            mapping = cmp.mapping.preset.insert({
+            mapping = cmp.mapping.preset.insert {
                 ["<c-space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
                 ["<c-k>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
                 ["<c-j>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
                 ["<c-e>"] = cmp.mapping(cmp.mapping.abort(), { "i", "c" }),
-                ["<cr>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { "i", "c" }),
-            }),
+                ["<cr>"] = cmp.mapping(cmp.mapping.confirm { select = false }, { "i", "c" }),
+                ["/"] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i", "c" }),
+            },
             sources = {
                 { name = "nvim_lua", group_index = 0 },
                 { name = "nvim_lsp", group_index = 1 },
@@ -49,12 +46,12 @@ return {
                 { name = "buffer", group_index = 2 },
             },
             formatting = {
-                fields = { "kind", "abbr", "menu" },
-                format = require "lspkind".cmp_format {
+                fields = { "abbr", "kind", "menu", },
+                format = require("lspkind").cmp_format {
                     mode = "symbol_text",
                     preset = "default",
                     maxwidth = 50,
-                    before = function (entry, vim_item)
+                    before = function(entry, vim_item)
                         vim_item.menu = ({
                             nvim_lsp = "[LSP]",
                             nvim_lua = "[LUA]",
@@ -63,8 +60,8 @@ return {
                             path = "[Path]",
                         })[entry.source.name]
                         return vim_item
-                    end
-                }
+                    end,
+                },
             },
         }
 
@@ -74,22 +71,21 @@ return {
             mapping = cmp.mapping.preset.cmdline(),
             completion = { autocomplete = false },
             sources = {
-                { name = "buffer" }
-            }
+                { name = "buffer" },
+            },
         })
-        cmp.setup.cmdline(':', {
+        cmp.setup.cmdline(":", {
             view = { entries = "custom" },
             mapping = cmp.mapping.preset.cmdline(),
             completion = { autocomplete = false },
-            sources = cmp.config.sources({
+            sources = cmp.config.sources {
                 { name = "path" },
-                { name = "cmdline" }
-            }),
+                { name = "cmdline" },
+            },
         })
 
-
-        local map = require "user.utils".map
-        map({"i", "n", "s"}, "<c-l>", function () luasnip.expand_or_jump() end)
-        map({"i", "n", "s"}, "<c-h>", function () luasnip.jump(-1) end)
-    end
+        local map = require("user.utils").map
+        map({ "i", "n", "s" }, "<c-l>", function() luasnip.expand_or_jump() end)
+        map({ "i", "n", "s" }, "<c-h>", function() luasnip.jump(-1) end)
+    end,
 }
