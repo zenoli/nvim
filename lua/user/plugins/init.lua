@@ -33,6 +33,20 @@ packer.startup(function(use)
         key = "<leader>C",
     }
 
+    use {
+        "MunifTanjim/exrc.nvim",
+        config = function()
+            require("exrc").setup {
+                files = {
+                    ".nvimrc.lua",
+                    ".nvimrc",
+                    ".exrc.lua",
+                    ".exrc",
+                },
+            }
+        end,
+    }
+
     use(plug "dressing")
     use(plug "lspsaga")
     use(plug "neo-tree")
