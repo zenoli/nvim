@@ -11,7 +11,13 @@ function M.navigate_out(state)
     if node.type == "directory" and not is_cwd(node) and node:is_expanded() then
         neotree_fs.toggle_directory(state, node)
     else
-        neotree_ui.focus_node(state, node:get_parent_id())
+        local parent_id = node:get_parent_id()
+        neotree_ui.focus_node(state, parent_id)
+        local parent = state.tree:get_node(parent_id)
+        local is_root = state.path == parent:get_id()
+        if not is_root then
+            neotree_fs.toggle_directory(state, parent)
+        end
     end
 end
 

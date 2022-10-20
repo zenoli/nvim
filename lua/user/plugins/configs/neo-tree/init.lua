@@ -1,6 +1,5 @@
 return {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
+    "~/repos/forks/neo-tree.nvim",
     requires = {
         "nvim-lua/plenary.nvim",
         "kyazdani42/nvim-web-devicons",
@@ -71,11 +70,10 @@ return {
             window = {
                 position = "left",
                 width = 30,
-                same_level = false,
+                same_level = true,
                 mapping_options = {
                     noremap = true,
                     nowait = true,
-                    -- same_level = true
                 },
                 mappings = {
                     ["o"] = "open_with_window_picker",
@@ -88,16 +86,23 @@ return {
                     ["g/"] = "fuzzy_finder",
                     ["a"] = {
                         "add",
-                        config = { same_level = true },
+                        config = {
+                            show_path = "relative",
+                            same_level = true,
+                        },
                     },
                     ["A"] = {
                         "add_directory",
-                        config = { same_level = true },
+                        config = {
+                            show_path = "relative",
+                            same_level = true,
+                        },
                     },
                 },
             },
             filesystem = {
                 follow_current_file = false,
+                group_empty_dirs = true,
                 use_libuv_file_watcher = true,
                 group_empty_dirs = true,
                 components = {
