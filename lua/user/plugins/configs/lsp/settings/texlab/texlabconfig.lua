@@ -6,6 +6,5 @@ local config = {
 return {
     "f3fora/nvim-texlabconfig",
     config = function() require("texlabconfig").setup(config) end,
-    -- ft = { 'tex', 'bib' }, -- for lazy loading
     run = "go build",
 }
