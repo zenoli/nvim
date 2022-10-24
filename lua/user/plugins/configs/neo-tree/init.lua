@@ -99,6 +99,7 @@ return {
             filesystem = {
                 follow_current_file = false,
                 use_libuv_file_watcher = true,
+                group_empty_dirs = true,
                 components = {
                     clipboard = function(config, node, state)
                         local highlights = require "neo-tree.ui.highlights"
