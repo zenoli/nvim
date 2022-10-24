@@ -11,9 +11,7 @@ return {
         map("n", "<leader>rn", "Lspsaga rename")
 
         -- Code action
-        map("n", "<leader>ca", "Lspsaga code_action")
-        map("v", "<leader>ca", "lua vim.lsp.buf.code_action()")
-        map("n", "gp", "Lspsaga preview_definition")
+        map("n", "gp", "Lspsaga peek_definition")
         -- Outline
         map("n","<leader>o", "LSoutlineToggle")
 

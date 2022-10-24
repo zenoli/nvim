@@ -11,8 +11,6 @@ return {
         module = "telescope",
         setup = require("user.plugins.configs.telescope.keybindings").setup,
         config = function()
-            local map = require("user.utils").map
-            local actions = require "telescope.actions"
             local telescope = require "telescope"
             telescope.setup {
                 defaults = {

@@ -4,11 +4,10 @@ return {
         "mason-lspconfig.nvim",
         "telescope.nvim",
     },
-    requires = require "user.plugins.configs.lsp.settings.texlab.texlabconfig",
+    requires = require("user.plugins.configs.lsp.settings.texlab").texlabconfig_plugin(),
     config = function()
         local lspconfig = require "lspconfig"
         local utils = require "user.utils"
-        -- local servers = require "user.plugins.configs.lsp.servers"
         local servers = require("mason-lspconfig").get_installed_servers()
         local map = utils.map
 

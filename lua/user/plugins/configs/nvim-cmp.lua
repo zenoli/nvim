@@ -36,7 +36,7 @@ return {
                 ["<c-j>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
                 ["<c-e>"] = cmp.mapping(cmp.mapping.abort(), { "i", "c" }),
                 ["<cr>"] = cmp.mapping(cmp.mapping.confirm { select = false }, { "i", "c" }),
-                ["/"] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i", "c" }),
+                ["<tab>"] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i", "c" }),
             },
             sources = {
                 { name = "nvim_lua", group_index = 0 },

@@ -66,6 +66,7 @@ local config = {
         require("user.plugins.configs.lsp.keybindings").setup(client, bufnr)
         require("jdtls").setup_dap { hotcodereplace = "auto" }
         require("jdtls.dap").setup_dap_main_class_configs()
+        require("jdtls.setup").add_commands()
 
         local dapui = require "dapui"
         local map = require("user.utils").map

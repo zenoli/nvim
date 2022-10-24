@@ -1,5 +1,18 @@
 local M = {}
 
+M.texlabconfig_plugin = function ()
+    local config = {
+        cache_root = vim.fn.stdpath "cache",
+        reverse_search_edit_cmd = vim.cmd.edit,
+    }
+
+    return {
+        "f3fora/nvim-texlabconfig",
+        config = function() require("texlabconfig").setup(config) end,
+        run = "go build",
+    }
+end
+
 M.on_attach = function(client, bufnr)
     local map = require("user.utils").map
     local opts = { buffer = bufnr }
