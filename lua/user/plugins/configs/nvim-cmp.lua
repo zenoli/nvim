@@ -46,7 +46,7 @@ return {
                 { name = "buffer", group_index = 2 },
             },
             formatting = {
-                fields = { "abbr", "kind", "menu", },
+                fields = { "abbr", "kind", "menu" },
                 format = require("lspkind").cmp_format {
                     mode = "symbol_text",
                     preset = "default",
