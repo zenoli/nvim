@@ -21,7 +21,7 @@ packer.startup(function(use)
     use "tpope/vim-commentary"
 
     use { "vimwiki/vimwiki", cmd = { "VimwikiDiaryIndex", "VimwikiMakeDiaryNote" } }
-    use { "junegunn/gv.vim", cmd = "GV" }
+    use { "junegunn/gv.vim", cmd = "GV", wants = "vim-fugitive" }
     use { "tpope/vim-rhubarb", cmd = "Gbrowse", after = "vim-fugitive" }
     use { "szw/vim-maximizer", keys = "<f3>" }
     use { "windwp/nvim-ts-autotag", after = "nvim-treesitter" }
