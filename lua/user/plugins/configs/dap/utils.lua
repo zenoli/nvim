@@ -45,4 +45,19 @@ function M.set_logpoint()
     )
 end
 
+function M.focus_dapui_window(name)
+    local fn = vim.fn
+    local bufname = vim.fn.bufname("DAP " .. name)
+
+    if bufname == "" then return end
+
+    local bufnr = vim.fn.bufnr(bufname)
+    local windows = vim.fn.win_findbuf(bufnr)
+
+    if #windows > 0 then
+        vim.fn.win_gotoid(windows[1])
+    end
+end
+
 return M
+
