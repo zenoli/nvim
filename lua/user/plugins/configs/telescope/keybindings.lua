@@ -32,6 +32,8 @@ return {
         map("n", "<leader>sc", function() require("telescope.builtin").command_history() end)
         map("n", "<leader>sm", function() require("telescope.builtin").man_pages() end)
         map("n", "<leader>sk", function() require("telescope.builtin").keymaps() end)
+        map("n", "<leader>so", function() require("telescope.builtin").lsp_document_symbols() end)
+        map("n", "<leader>sO", function() require("telescope.builtin").lsp_workspace_symbols() end)
         map("n", "<leader>st", function() require("telescope.builtin").builtin() end)
         map("n", "<leader>tt", function() require("telescope.builtin").resume() end)
     end,
