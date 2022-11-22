@@ -17,5 +17,7 @@ return {
         map("n", "<leader>gc", ":Git checkout<space>", { silent = false })
         map("n", "<leader>gb", ":Git branch<space>", { silent = false })
         map("n", "<leader>g<leader>", ":Git ", { silent = false })
+        map("n", "<leader>th", ":diffget //2<cr> ")
+        map("n", "<leader>tl", ":diffget //3<cr> ")
     end,
 }
