@@ -45,6 +45,7 @@ return {
                     folder_closed = "",
                     folder_open = "",
                     folder_empty = "",
+                    folder_empty_open = "",
                     default = "",
                 },
                 modified = {
@@ -70,7 +71,7 @@ return {
             window = {
                 position = "left",
                 width = 30,
-                same_level = true,
+                insert_as = "sibling",
                 mapping_options = {
                     noremap = true,
                     nowait = true,
@@ -84,18 +85,17 @@ return {
                     ["q"] = "clear_filter",
                     ["/"] = "noop", -- "noop" removes a default mapping
                     ["g/"] = "fuzzy_finder",
+                    ["Z"] = "expand_all_nodes",
                     ["a"] = {
                         "add",
                         config = {
                             show_path = "relative",
-                            same_level = true,
                         },
                     },
                     ["A"] = {
                         "add_directory",
                         config = {
                             show_path = "relative",
-                            same_level = true,
                         },
                     },
                 },
@@ -104,6 +104,8 @@ return {
                 follow_current_file = false,
                 group_empty_dirs = true,
                 use_libuv_file_watcher = true,
+                async_directory_scan = "auto",
+                scan_mode = "shallow",
                 components = {
                     clipboard = function(config, node, state)
                         local highlights = require "neo-tree.ui.highlights"
