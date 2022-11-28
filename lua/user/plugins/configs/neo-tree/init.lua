@@ -105,7 +105,7 @@ return {
                 group_empty_dirs = true,
                 use_libuv_file_watcher = true,
                 async_directory_scan = "auto",
-                scan_mode = "shallow",
+                scan_mode = "deep",
                 components = {
                     clipboard = function(config, node, state)
                         local highlights = require "neo-tree.ui.highlights"

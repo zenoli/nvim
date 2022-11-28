@@ -1,9 +1,10 @@
 return  {
-    "sumneko_lua",
+    "bashls",
+    "jsonls",
     "pyright",
-    "vimls",
-    "tsserver",
+    "sumneko_lua",
     "svelte",
     "tailwindcss",
-    "bashls"
+    "tsserver",
+    "vimls",
 }

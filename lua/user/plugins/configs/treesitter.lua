@@ -24,6 +24,10 @@ return {
                 "bash",
                 "css"
             },
+            indent = {
+                enable = true,
+                disable = { "python" }
+            },
             highlight = {
                 enable = true -- false will disable the whole extension
             },
