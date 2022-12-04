@@ -12,7 +12,7 @@ return {
         "TSEnableAll",
     },
     config = function()
-        require "nvim-treesitter.configs".setup {
+        require("nvim-treesitter.configs").setup {
             ensure_installed = {
                 "lua",
                 "python",
@@ -22,20 +22,30 @@ return {
                 "svelte",
                 "vim",
                 "bash",
-                "css"
+                "css",
             },
             indent = {
                 enable = true,
-                disable = { "python" }
+                disable = { "python" },
             },
             highlight = {
-                enable = true -- false will disable the whole extension
+                enable = true, -- false will disable the whole extension
+                is_supported = function()
+                    if
+                        vim.fn.strwidth(vim.fn.getline ".") > 300
+                        or vim.fn.getfsize(vim.fn.expand "%") > 1024 * 1024
+                    then
+                        return false
+                    else
+                        return true
+                    end
+                end,
             },
             autotag = {
-                enable = true
+                enable = true,
             },
-            incremental_selection = { enable = true }
+            incremental_selection = { enable = true },
         }
     end,
-    run = ":TSUpdate"
+    run = ":TSUpdate",
 }
