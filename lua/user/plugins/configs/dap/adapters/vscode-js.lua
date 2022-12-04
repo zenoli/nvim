@@ -10,7 +10,6 @@ function M.plugin()
             local dap = require "dap"
             require("dap-vscode-js").setup {
                 debugger_path = JS_DEBUG_ADAPTER_PATH,
-                -- debugger_path = os.getenv "HOME" .. "/.DAP/vscode-js-debug",
                 node_path = "node",
                 adapters = {
                     "pwa-node",
