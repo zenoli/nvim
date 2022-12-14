@@ -4,7 +4,10 @@ return {
         "mason-lspconfig.nvim",
         "telescope.nvim",
     },
-    requires = require("user.plugins.configs.lsp.settings.texlab").texlabconfig_plugin(),
+    requires = {
+        require("user.plugins.configs.lsp.settings.tsserver").typescript_plugin(),
+        require("user.plugins.configs.lsp.settings.texlab").texlabconfig_plugin(),
+    },
     config = function()
         local lspconfig = require "lspconfig"
         local utils = require "user.utils"
@@ -63,35 +66,45 @@ return {
             vim.notify("cmp_nvim_lsp is not installed...", vim.log.levels.WARN)
         end
 
-        for _, server in pairs(servers) do
-            if server ~= "jdtls" then
-                local opts = {
-                    lsp_flags = lsp_flags,
-                    capabilities = capabilities,
-                }
+        local function get_server_config(server)
+            local opts = {
+                lsp_flags = lsp_flags,
+                capabilities = capabilities,
+            }
 
-                local has_custom_config, custom_config = pcall(
-                    require,
-                    "user.plugins.configs.lsp.settings." .. utils.to_kebap_case(server)
-                )
-                if has_custom_config then
-                    -- Add server specific settings
-                    if custom_config.settings then opts.settings = custom_config.settings end
-                    -- Add server specific callback
-                    if custom_config.on_attach then
-                        opts.on_attach = function(client, bufnr)
-                            on_attach(client, bufnr)
-                            custom_config.on_attach(client, bufnr)
-                        end
-                    else
-                        opts.on_attach = on_attach
+            local has_custom_config, custom_config =
+                pcall(require, "user.plugins.configs.lsp.settings." .. utils.to_kebap_case(server))
+            if has_custom_config then
+                -- Add server specific settings
+                if custom_config.settings
+                    then opts.settings = custom_config.settings
+                end
+                -- Add server specific callback
+                if custom_config.on_attach then
+                    opts.on_attach = function(client, bufnr)
+                        on_attach(client, bufnr)
+                        custom_config.on_attach(client, bufnr)
                     end
                 else
                     opts.on_attach = on_attach
                 end
+            else
+                opts.on_attach = on_attach
+            end
+            return opts
+        end
+
+
+        for _, server in pairs(servers) do
+            local opts = get_server_config(server)
+            if server == "jdtls" then
+                utils.noop(opts)
+            elseif server == "tsserver" then
+                require("user.plugins.configs.lsp.settings.tsserver").setup(opts)
+            else
                 lspconfig[server].setup(opts)
             end
-        end
+       end
 
         -- Keybindings
         map("n", "[d", vim.diagnostic.goto_prev)

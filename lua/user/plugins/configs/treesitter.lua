@@ -29,16 +29,17 @@ return {
                 disable = { "python" },
             },
             highlight = {
-                enable = true, -- false will disable the whole extension
-                is_supported = function()
-                    if
-                        vim.fn.strwidth(vim.fn.getline ".") > 300
-                        or vim.fn.getfsize(vim.fn.expand "%") > 1024 * 1024
-                    then
-                        return false
-                    else
-                        return true
+                enable = true,
+                disable = function(_, bufnr)
+                    local LINE_NR_THRESH = 1000
+                    local is_large_file = vim.api.nvim_buf_line_count(bufnr) > LINE_NR_THRESH
+                    if is_large_file then
+                        -- vim.cmd[[syntax off]]
+                        vim.cmd[[IndentBlanklineDisable]]
+                        -- vim.cmd[[DapVirtualTextDisable]]
+                        vim.opt_local.spell = false
                     end
+                    return is_large_file
                 end,
             },
             autotag = {

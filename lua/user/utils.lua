@@ -57,6 +57,28 @@ function M.to_snake_case(s) return string.gsub(s, "-", "_") end
 -- to `kebap-case`.
 function M.to_kebap_case(s) return string.gsub(s, "_", "-") end
 
+
+function M.contains(tab, val)
+    for _, v in ipairs(tab) do
+        if v == val then
+            return true
+        end
+    end
+    return false
+end
+
+function M.table_exclude(tab, exclude)
+    local result = {}
+    for _, v in ipairs(tab) do
+        if not M.contains(exclude, v) then
+            table.insert(result, v)
+        end
+    end
+    return result
+end
+
+function M.noop(...) return nil end
+
 M.paths = {
     MASON_BIN_PATH = vim.fn.stdpath "data" .. "/mason/bin",
     MASON_PACKAGE_PATH = vim.fn.stdpath "data" .. "/mason/packages",
