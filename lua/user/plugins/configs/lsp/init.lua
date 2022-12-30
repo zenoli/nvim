@@ -5,6 +5,7 @@ return {
         "telescope.nvim",
     },
     requires = {
+        require("user.plugins.configs.lsp.settings.jsonls").schemastore_plugin(),
         require("user.plugins.configs.lsp.settings.tsserver").typescript_plugin(),
         require("user.plugins.configs.lsp.settings.texlab").texlabconfig_plugin(),
     },
@@ -60,6 +61,7 @@ return {
 
         local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
         local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities.textDocument.completion.completionItem.snippetSupport = true
         if status_ok then
             capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
         else
