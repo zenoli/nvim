@@ -5,9 +5,9 @@ return {
         vim.api.nvim_set_var("tmux_navigator_no_mappings", 1)
 
         local map = require "user.utils".map
-        map("n", "<a-h>", ":TmuxNavigateLeft<cr>")
-        map("n", "<a-j>", ":TmuxNavigateDown<cr>")
-        map("n", "<a-k>", ":TmuxNavigateUp<cr>")
-        map("n", "<a-l>", ":TmuxNavigateRigh<cr>")
+        map("n", "<a-h>", "<cmd>TmuxNavigateLeft<cr>")
+        map("n", "<a-j>", "<cmd>TmuxNavigateDown<cr>")
+        map("n", "<a-k>", "<cmd>TmuxNavigateUp<cr>")
+        map("n", "<a-l>", "<cmd>TmuxNavigateRigh<cr>")
     end
 }
