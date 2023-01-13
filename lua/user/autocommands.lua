@@ -25,6 +25,12 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     group = custom_autocommands,
+    pattern = "*.cfg",
+    callback = function() vim.opt.filetype = "config" end
+})
+
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+    group = custom_autocommands,
     pattern = ".luacheckrc",
     callback = function() vim.opt.filetype = "lua" end
 })

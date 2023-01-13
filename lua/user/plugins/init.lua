@@ -34,9 +34,7 @@ packer.startup(function(use)
     }
     use {
         "norcalli/nvim-colorizer.lua",
-        config = function ()
-            require("colorizer").setup()
-        end
+        config = function() require("colorizer").setup() end,
     }
 
     use {
@@ -53,6 +51,7 @@ packer.startup(function(use)
         end,
     }
 
+    use(plug "catpuccin")
     use(plug "dressing")
     use(plug "lspsaga")
     use(plug "neo-tree")
@@ -73,6 +72,7 @@ packer.startup(function(use)
     use(plug "calendar")
     use(plug "telescope")
     use(plug "fugitive")
+    use(plug "diffview")
     use(plug "onedark")
     use(plug "gitsigns")
     use(plug "indentline")

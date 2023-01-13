@@ -1,5 +1,6 @@
 return {
-    "~/repos/forks/neo-tree.nvim",
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "main",
     requires = {
         "nvim-lua/plenary.nvim",
         "kyazdani42/nvim-web-devicons",
