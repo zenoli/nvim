@@ -20,7 +20,6 @@ packer.startup(function(use)
     use "tpope/vim-repeat"
     use "tpope/vim-commentary"
 
-    use { "vimwiki/vimwiki", cmd = { "VimwikiDiaryIndex", "VimwikiMakeDiaryNote" } }
     use { "junegunn/gv.vim", cmd = "GV", wants = "vim-fugitive" }
     use { "tpope/vim-rhubarb", cmd = "Gbrowse", after = "vim-fugitive" }
     use { "szw/vim-maximizer", keys = "<f3>" }
@@ -32,34 +31,17 @@ packer.startup(function(use)
         cmd = { "ToggleDiag", "ToggleDiagDefault" },
         key = "<leader>C",
     }
-    use {
-        "norcalli/nvim-colorizer.lua",
-        config = function() require("colorizer").setup() end,
-    }
 
-    use {
-        "MunifTanjim/exrc.nvim",
-        config = function()
-            require("exrc").setup {
-                files = {
-                    ".nvimrc.lua",
-                    ".nvimrc",
-                    ".exrc.lua",
-                    ".exrc",
-                },
-            }
-        end,
-    }
 
+    use(plug "colorizer")
+    use(plug "exrc")
+    use(plug "vimwiki")
     use(plug "catpuccin")
     use(plug "dressing")
     use(plug "lspsaga")
     use(plug "neo-tree")
-    -- use(plug "nvim-tree")
     use(plug "luasnip")
     use(plug "refactoring")
-    -- use(plug "lf")
-    -- use(plug "toggleterm")
     use(plug "fidget")
     use(plug "winbar")
     use(plug "mason")
@@ -86,7 +68,6 @@ packer.startup(function(use)
     use(plug "neodim")
     use(plug "vim-svelte")
     use(plug "autopairs")
-    -- use(plug "vimtex")
     use(plug "nvim-window-picker")
 
     -- Automatically set up your configuration after cloning packer.nvim
