@@ -32,13 +32,12 @@ packer.startup(function(use)
         key = "<leader>C",
     }
 
-
+    use(plug "zk")
     use(plug "colorizer")
     use(plug "exrc")
     use(plug "vimwiki")
     use(plug "catpuccin")
     use(plug "dressing")
-    use(plug "lspsaga")
     use(plug "neo-tree")
     use(plug "luasnip")
     use(plug "refactoring")
@@ -59,7 +58,6 @@ packer.startup(function(use)
     use(plug "gitsigns")
     use(plug "indentline")
     use(plug "lualine")
-    use(plug "rnvimr")
     use(plug "tabularize")
     use(plug "treesitter")
     use(plug "vim-tmux-navigator")

@@ -3,7 +3,9 @@ return {
         -- Mapings.
         local map = require("user.utils").map
         local opts = { buffer = bufnr }
+
         map("n", "gi", vim.lsp.buf.implementation, opts)
+        map("n", "rn", vim.lsp.buf.rename, opts)
         map("n", "<leader>F", vim.lsp.buf.format, opts)
         map("n", "<space>gd", vim.lsp.buf.type_definition, opts)
         map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)

@@ -3,6 +3,7 @@ return {
     wants = {
         "mason-lspconfig.nvim",
         "telescope.nvim",
+        "schemastore.nvim",
     },
     requires = {
         require("user.plugins.configs.lsp.settings.jsonls").schemastore_plugin(),
@@ -78,8 +79,12 @@ return {
                 pcall(require, "user.plugins.configs.lsp.settings." .. utils.to_kebap_case(server))
             if has_custom_config then
                 -- Add server specific settings
-                if custom_config.settings
-                    then opts.settings = custom_config.settings
+                if custom_config.settings then
+                    if type(custom_config.settings) == "function" then
+                        opts.settings = custom_config.settings()
+                    else
+                        opts.settings = custom_config.settings
+                    end
                 end
                 -- Add server specific callback
                 if custom_config.on_attach then
@@ -96,7 +101,6 @@ return {
             return opts
         end
 
-
         for _, server in pairs(servers) do
             local opts = get_server_config(server)
             if server == "jdtls" then
@@ -106,7 +110,7 @@ return {
             else
                 lspconfig[server].setup(opts)
             end
-       end
+        end
 
         -- Keybindings
         map("n", "[d", vim.diagnostic.goto_prev)

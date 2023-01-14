@@ -1,7 +1,7 @@
 return {
     "glepnir/lspsaga.nvim",
     branch = "main",
-    module = "lspsaga",
+    -- module = "lspsaga",
     setup = function()
         local map = function(mode, lhs, rhs, opts)
             require("user.utils").map(mode, lhs, rhs, opts, "lspsaga")
@@ -26,7 +26,7 @@ return {
         -- local map = require "user.utils".map
         local saga = require "lspsaga"
 
-        saga.init_lsp_saga {
+        saga.setup {
             border_style = "rounded",
             code_action_lightbulb = {
                 enable = true,
@@ -37,16 +37,19 @@ return {
                 sign_priority = 20,
                 virtual_text = true,
             },
+            symbol_in_winbar = {
+                enable = false,
+            },
             code_action_keys = {
-                quit = "<esc>",
-                exec = "<cr>",
+                quit = "",
+                exec = "",
             },
             finder_action_keys = {
                 open = "o",
                 vsplit = "<c-v>",
                 split = "<c-x>",
                 tabe = "t",
-                quit = "<esc>",
+                quit = "",
                 scroll_down = "<c-d>",
                 scroll_up = "<c-u>", -- quit can be a table
             },
