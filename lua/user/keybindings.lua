@@ -64,10 +64,10 @@ map("i", "!", "!<c-g>u")
 map("i", "?", "?<c-g>u")
 
 -- Move selected lines vertically
-map("v", "J", ":m '>+1<CR>gv=gv")
-map("v", "K", ":m '<-2<CR>gv=gv")
+map("v", "J", ":m '>+1<cr>gv=gv")
+map("v", "K", ":m '<-2<cr>gv=gv")
 -- map("i", "<c-s-k>", "<esc>:m .-2<cr>==a")
--- map("i", "<c-s-j>", "<esc>:m .+1<CR>==a")
+-- map("i", "<c-s-j>", "<esc>:m .+1<cr>==a")
 
 -- Move selected lines horizontally
 map("v", ">", ">gv")
@@ -75,4 +75,4 @@ map("v", "<", "<gv")
 map("s", ">", ">")
 map("s", "<", "<")
 
-map("n", "<leader>C", ":ToggleDiag<cr>")
+map("n", "<leader>C", "<cmd>ToggleDiag<cr>")

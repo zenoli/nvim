@@ -26,12 +26,8 @@ packer.startup(function(use)
     use { "windwp/nvim-ts-autotag", after = "nvim-treesitter" }
     use { "rafamadriz/friendly-snippets", opt = true }
     use { "onsails/lspkind.nvim", opt = true }
-    use {
-        "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
-        cmd = { "ToggleDiag", "ToggleDiagDefault" },
-        key = "<leader>C",
-    }
 
+    use(plug "toggle-lsp-diagnostics")
     use(plug "zk")
     use(plug "colorizer")
     use(plug "exrc")
