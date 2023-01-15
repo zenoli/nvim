@@ -27,6 +27,7 @@ packer.startup(function(use)
     use { "rafamadriz/friendly-snippets", opt = true }
     use { "onsails/lspkind.nvim", opt = true }
 
+    use(plug "aerial")
     use(plug "toggle-lsp-diagnostics")
     use(plug "zk")
     use(plug "colorizer")

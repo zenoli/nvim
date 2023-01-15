@@ -29,7 +29,7 @@ return {
                 disable = { "python" },
             },
             highlight = {
-                enable = true,
+               enable = true,
                 disable = function(_, bufnr)
                     local LINE_NR_THRESH = 1000
                     local is_large_file = vim.api.nvim_buf_line_count(bufnr) > LINE_NR_THRESH
