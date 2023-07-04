@@ -2,7 +2,7 @@ return  {
     "bashls",
     "jsonls",
     "pyright",
-    "sumneko_lua",
+    "lua_ls",
     "svelte",
     "tailwindcss",
     "tsserver",

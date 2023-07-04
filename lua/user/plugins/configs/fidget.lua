@@ -1,7 +1,8 @@
 return {
     "j-hui/fidget.nvim",
+    tag = "legacy",
     config = function()
-        require("fidget").setup{
+        require("fidget").setup {
             sources = {
                 ["null-ls"] = {
                     ignore = true,

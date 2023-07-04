@@ -1,5 +1,6 @@
 return {
-    "nvim-neo-tree/neo-tree.nvim",
+    -- "nvim-neo-tree/neo-tree.nvim",
+    "~/repos/forks/neo-tree.nvim",
     branch = "main",
     requires = {
         "nvim-lua/plenary.nvim",
@@ -56,16 +57,16 @@ return {
                 git_status = {
                     symbols = {
                         -- Change type
-                        added = "", -- or "✚"
-                        modified = "", -- or ""
-                        deleted = "✖", -- this can only be used in the git_status source
-                        renamed = "", -- this can only be used in the git_status source
+                        added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+                        modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
+                        deleted   = "✖", -- this can only be used in the git_status source
+                        renamed   = "", -- this can only be used in the git_status source
                         -- Status type
                         untracked = "",
-                        ignored = "",
-                        unstaged = "",
-                        staged = "",
-                        conflict = "",
+                        ignored   = "I",
+                        unstaged  = "U",
+                        staged    = "S",
+                        conflict  = "",
                     },
                 },
             },

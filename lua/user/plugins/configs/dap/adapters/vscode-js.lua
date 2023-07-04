@@ -6,10 +6,10 @@ function M.plugin()
         after = "nvim-dap",
         config = function()
             local mason_utils = require "user.plugins.configs.mason.utils"
-            local JS_DEBUG_ADAPTER_PATH = mason_utils.MASON_PACKAGE_PATH .. "/js-debug-adapter"
+            local JS_DEBUG_ADAPTER_PATH = mason_utils.MASON_PACKAGE_PATH .. "/vscode-js-debug"
             local dap = require "dap"
             require("dap-vscode-js").setup {
-                debugger_path = JS_DEBUG_ADAPTER_PATH,
+                debugger_path = "/home/olivier/.local/share/nvim/site/pack/packer/opt/vscode-js-debug",
                 node_path = "node",
                 adapters = {
                     "pwa-node",
@@ -46,6 +46,8 @@ function M.plugin()
                         request = "attach",
                         processId = require("dap.utils").pick_process,
                         cwd = "${workspaceFolder}",
+                        sourceMaps = true,
+                        enableContentValidation = false,
                     },
                     {
                         name = "Chrome: Attach",

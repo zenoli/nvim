@@ -26,6 +26,15 @@ packer.startup(function(use)
     use { "windwp/nvim-ts-autotag", after = "nvim-treesitter" }
     use { "rafamadriz/friendly-snippets", opt = true }
     use { "onsails/lspkind.nvim", opt = true }
+    use {
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    }
+    use {
+        "microsoft/vscode-js-debug",
+        opt = true,
+        run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+    }
 
     use(plug "aerial")
     use(plug "toggle-lsp-diagnostics")
