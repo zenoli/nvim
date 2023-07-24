@@ -2,7 +2,7 @@ local utils = require "user.utils"
 local map = utils.map
 
 -- Leaders
-vim.g.mapleader = [[ ]] -- Use space as leader
+vim.g.mapleader = [[ ]]      -- Use space as leader
 vim.g.maplocalleader = [[\]] -- Use backslash as localleader
 
 map("n", "<leader>vs", utils.reload)
@@ -27,7 +27,7 @@ map("n", "<leader>D", ":bp<bar>bd #<cr>")
 
 -- Scrolling
 map("n", "<c-j>", "5<c-e>")
-map("n" , "<c-k>", "5<c-y>")
+map("n", "<c-k>", "5<c-y>")
 
 -- Tab navigation
 map("n", "]t", ":tabnext<cr>")

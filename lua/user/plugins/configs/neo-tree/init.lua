@@ -25,8 +25,8 @@ return {
         local event_handlers = require "user.plugins.configs.neo-tree.event_handlers"
 
         local clipboard_icons = {
-            cut = "",
-            copy = "",
+            cut = "󰆐 ",
+            copy = "󰆏 ",
         }
 
         require("neo-tree").setup {
