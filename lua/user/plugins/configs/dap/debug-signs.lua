@@ -2,25 +2,25 @@ return {
     setup = function()
         local dap_signs = {
             breakpoint = {
-                text = "",
+                text = " ",
                 texthl = "DiagnosticError",
                 linehl = "",
                 numhl = "",
             },
             breakpoint_condition = {
-                text = "",
+                text = " ",
                 texthl = "DiagnosticError",
                 linehl = "",
                 numhl = "",
             },
             log_point = {
-                text = "ﯽ",
+                text = " ",
                 texthl = "DiagnosticInfo",
                 linehl = "",
                 numhl = "",
             },
             breakpoint_rejected = {
-                text = "",
+                text = " ",
                 texthl = "DiagnosticWarn",
                 linehl = "",
                 numhl = "",

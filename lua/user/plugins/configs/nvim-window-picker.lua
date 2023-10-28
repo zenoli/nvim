@@ -4,9 +4,10 @@ return {
     tag = "v1.*",
     opt = true,
     config = function()
-        require'window-picker'.setup({
+        require 'window-picker'.setup({
             autoselect_one = true,
             include_current = false,
+            hint = 'statusline-winbar',
             filter_rules = {
                 -- Ignore picker for ft/bt:
                 bo = {
@@ -21,8 +22,15 @@ return {
                     buftype = { "terminal" },
                 },
             },
-            -- other_win_hl_color = '#e35e4f', -- orange
-            other_win_hl_color = '#4493c8', -- blue
+            highlights = {
+                statusline = {
+                    unfocused = {
+                        fg = '#ededed',
+                        bg = '#4493c8',
+                        bold = true,
+                    },
+                },
+            },
         })
     end,
 }

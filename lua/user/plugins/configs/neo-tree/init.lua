@@ -106,7 +106,7 @@ return {
                 follow_current_file = false,
                 group_empty_dirs = true,
                 use_libuv_file_watcher = true,
-                async_directory_scan = "auto",
+                async_directory_scan = "never",
                 scan_mode = "deep",
                 components = {
                     clipboard = function(config, node, state)

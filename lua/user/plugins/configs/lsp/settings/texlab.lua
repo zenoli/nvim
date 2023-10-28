@@ -26,8 +26,8 @@ function M.settings()
             auxDirectory = ".",
             bibtexFormatter = "texlab",
             build = {
-                args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
                 executable = "latexmk",
+                args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
                 forwardSearchAfter = false,
                 onSave = true,
             },
@@ -43,7 +43,8 @@ function M.settings()
                 args = {
                     "--synctex-editor-command",
                     require("texlabconfig").project_dir()
-                        .. [[/nvim-texlabconfig -file '%{input}' -line %{line}]],
+                    .. [[/nvim-texlabconfig -file '%%%{input}' -line %%%{line} -server ]]
+                    .. vim.v.servername,
                     "--synctex-forward",
                     "%l:1:%f",
                     "%p",
